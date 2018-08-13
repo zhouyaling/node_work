@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 2266px;
+    height: 1080px;
+    margin: 0 auto;
+    overflow: hidden;
+
+}
+
+.page {
+    width: 2266px;
+    height: 1080px;
+ transform: scale3d(0.849557,1,1);
+    margin-left: -173px;
+    background-color:#674728;
+}
+
+iframe {
+    width: 2266px;
+    height: 1080px;
+    border: none;
+    outline: none;
+}
+
+.mp4-m {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}

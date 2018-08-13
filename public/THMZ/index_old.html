@@ -1,0 +1,646 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>天智慧启BI大屏数据</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/SmartCommunitybase.css" />
+    <link rel="stylesheet" href="./css/component.css" />
+    <link rel="stylesheet" href="./css/district.css" />
+    <link rel="stylesheet" href="./css/swiper.min.css" />
+    <script src="lib/jquery-1.10.2.min.js"></script>
+    <script src="lib/vue.min.js"></script>
+    <script src="lib/echarts.min.js"></script>
+    <script src="lib/swiper.min.js"></script>
+</head>
+<!--style="overflow:hidden"-->
+
+<body style="overflow:hidden">
+    <div class="main" id="app">
+        <div class="m-1">
+            <!--title-->
+            <title-all :info="'园区巡更系统1'" :size="{width:337,height:52}"></title-all>
+            <!--巡逻信息-->
+            <div class="patrol-district5">
+                巡更频次：3人／小时 <br> 巡逻人数：4人
+                <br> 管理面积：28万方
+                <br> 服务业主：1512人
+                <br>
+            </div>
+            <!--接房信息-->
+            <div class="room-rate">
+                <div>
+                    <p>接房率&emsp;{{toRoom.toRoomRate}}</p>
+                    <p>装修率&emsp;{{toRoom.decorationRate}}</p>
+                </div>
+                <div class="progress-data">
+                    <p><span>高层</span> <span>{{toRoom.highLevel.number}}套</span></p>
+                    <progress v-model="toRoom.highLevel.rate" max="100"></progress>
+                    <p>入住率&emsp;{{toRoom.highLevel.rate}}%</p>
+                </div>
+                <div class="progress-data">
+                    <p><span>洋房</span> <span>{{toRoom.bungalow.number}}套</span></p>
+                    <progress v-model="toRoom.bungalow.rate" max="100"></progress>
+
+                    <p>入住率&emsp;{{toRoom.bungalow.rate}}%</p>
+                </div>
+                <div class="progress-data">
+                    <p><span>别墅</span> <span>{{toRoom.villa.number}}套</span></p>
+                    <progress v-model="toRoom.villa.rate" max="100"></progress>
+                    <p>入住率&emsp;{{toRoom.villa.rate}}%</p>
+                </div>
+                <div class="progress-data">
+                    <p><span>商业</span> <span>{{toRoom.business.number}}套</span></p>
+                    <progress v-model="toRoom.business.rate" max="100"></progress>
+                    <p>入住率&emsp;{{toRoom.business.rate}}%</p>
+                </div>
+            </div>
+            <!--车位使用率-->
+            <div class="parking-use-rate">
+                <p>车位使用率&emsp;{{parkingSpaces.useRate}}</p>
+                <div class="parking-sell-scan">
+                    <cricle-ring :size='{width:337,height:190}' :info='parkingRate' :unit='"个"'></cricle-ring>
+                    <div class="crile-small-w">
+
+                        {{parkingSpaces.totalSpaces}}个
+                        <br> 总车位
+
+                    </div>
+                </div>
+                <div class="parking-data">
+                    <div>
+                        <p>已售</p>
+                        <div>
+                            <p>自用</p>
+                            <p>出售</p>
+                        </div>
+                        <div>
+                            <p> {{parkingSpaces.overSoldSelf}}</p>
+                            <p>{{parkingSpaces.overSoldSell}}</p>
+                        </div>
+                    </div>
+                    <div style="margin-left: 10px;">
+                        <p>未售</p>
+                        <div>
+                            <p>出租</p>
+                            <p>空置</p>
+                        </div>
+                        <div>
+                            <p> {{parkingSpaces.noSoldSelf}}</p>
+                            <p>{{parkingSpaces.noSoldSell}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <!--项目小区信息-->
+            <div class="community-data">
+                <span class="icon icon-floor pull-left"></span>
+                <div class="community-number">
+                    <p>天湖美镇</p>
+                    <p>{{districtInfo.ip.split(',')[1]}}<br>{{districtInfo.ip.split(',')[0]}}</p>
+                </div>
+                <div>
+                    <p>服务接管时间</p>
+                    <p>{{districtInfo.takeOver}}</p>
+                </div>
+                <div>
+                    <p>绿化率</p>
+                    <p>{{districtInfo.greening}}</p>
+                </div>
+                <div>
+                    <p>容积率</p>
+                    <p>{{districtInfo.volumeRate}}</p>
+                </div>
+                <div>
+                    <p>自住房屋</p>
+                    <p>{{districtInfo.selfHouse}}套</p>
+                </div>
+
+                <div>
+                    <p>出租房屋</p>
+                    <p>{{districtInfo.rentHouse}}套</p>
+                </div>
+                <div>
+                    <p>空置房屋</p>
+                    <p>{{districtInfo.vacantHouse}}个</p>
+                </div>
+                <div>
+                    <p>总设备数量</p>
+                    <p>{{districtInfo.devicesNumber}}人</p>
+                </div>
+                <div>
+                    <p>总项目人员</p>
+                    <p>{{districtInfo.projectStaff}}人</p>
+                </div>
+            </div>
+            <div class="report-m">
+                <div class="map">
+                    <!--西区1号门-->
+                    <div class="absolute" style="top:37px;left: 442px;">
+                        人行: <span class="person">{{doorFlow[1].people}}</span>人
+                    </div>
+                    <div class="absolute" style="top:37px;left: 654px;">
+                        人行: <span class="person">{{doorFlow[1].car}}</span>辆
+                    </div>
+                    <!--5号-->
+                    <div class="absolute" style="top:327px;left: 772px;">
+                        人行: <span class="person">{{doorFlow[2].people}}</span>人
+                    </div>
+                    <div class="absolute" style="top:251px;left: 772px;">
+                        车行: <span class="car">{{doorFlow[2].car}}</span>辆
+                    </div>
+                    <!--西区2号门-->
+                    <div class="absolute" style="top:75px;left: 66px;">
+                        人行: <span class="person">{{doorFlow[3].car}}</span>人 <br>
+                    </div>
+                    <!--西区3号门-->
+                    <div class="absolute" style="top:613px;left: 79px">
+                        人行: <span class="person">{{doorFlow[3].people}}</span>人
+                    </div>
+                    <!--西区4号门-->
+                    <div class="absolute" style="top:700px;left: 393px;">
+                        车行: <span class="car">{{doorFlow[4].people}}</span>辆
+                    </div>
+
+
+                    <!--视屏监控点-->
+
+                    <div class="absolute" style="display: inline-block;" v-for="item in monitorFenList" :style="{top: item.ipy,left: item.ipx}">
+                        <span class=" icon icon-point-blue-big" v-if="item.isMain=='0' && item.activ=='0' "> </span>
+                        <span class=" icon icon-point-big-red" v-if="item.isMain=='0' && item.activ=='1' "> </span>
+                        <span class=" icon icon-point-big" v-if="item.isMain=='1' && item.activ=='0' "> </span>
+                        <span class=" icon icon-point-big-red" v-if="item.isMain=='1' && item.activ=='1' "> </span>
+                    </div>
+                    <div class="absolute icon-xungeng-abnormal dianwei" style="top:400px;left:75px; width:150px; height: 80px; display: none">
+                        <div style="margin:10px 0px 0px 20px;">
+                            <span>巡更人员:</span>
+                            <span>赵武</span>
+                        </div>
+                        <div style="margin:3px 0px 0px 20px;">
+                            <span>巡更点位:</span>
+                            <span id="dianwei1">1号点位</span>
+                        </div>
+                        <div style="margin:3px 0px 0px 20px;">
+                            <span id="time1">2017/8/16 14:14:13</span>
+                        </div>
+                    </div>
+                    <div class="xungenghead1">
+                        <div style="width: 63px; height: 63px; border-radius: 50%; border: 2px solid #1f5ec2;overflow:  hidden">
+                            <div style="width: 59px; height: 59px; border-radius: 50%;border:2px solid #1f5ec2;overflow:  hidden">
+                                <img src="img/xungenghead1.png" width="59" height="59" />
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="xungenghead2">
+                        <div style="width: 63px; height: 63px; border-radius: 50%;border:2px solid #1f5ec2;overflow:  hidden">
+                            <div style="width: 59px; height: 59px; border-radius: 50%;border:2px solid #1f5ec2;overflow:  hidden">
+                                <img src="img/xungenghead2.png" width="59" height="59" />
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="xungenghead3">
+                        <div style="width: 63px; height: 63px; border-radius: 50%;border:2px solid #1f5ec2;overflow:  hidden">
+                            <div style="width: 59px; height: 59px; border-radius: 50%;border:2px solid #1f5ec2;overflow:  hidden">
+                                <img src="img/xungenghead3.png" width="59" height="59" />
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="absolute icon-xungeng-abnormal dianwei" style="  top:480px;left:775px; width:150px; height: 80px;display: none">
+                        <div style="margin:10px 0px 0px 20px;">
+                            <span>巡更人员:</span>
+                            <span>张宇</span>
+                        </div>
+                        <div style="margin:3px 0px 0px 20px;">
+                            <span>巡更点位:</span>
+                            <span id="dianwei2">6号点位</span>
+                        </div>
+                        <div style="margin:3px 0px 0px 20px;">
+                            <span id="time2">2017/8/16 14:14:13</span>
+                        </div>
+                    </div>
+                    <div class="absolute icon-xungeng-abnormal dianwei" style="top:100px;left:815px; width:150px; height: 80px;display: none">
+                        <div style="margin:10px 0px 0px 20px;">
+                            <span>巡更人员:</span>
+                            <span>姜昕</span>
+                        </div>
+                        <div style="margin:3px 0px 0px 20px;">
+                            <span>巡更点位:</span>
+                            <span id="dianwei3">11号点位</span>
+                        </div>
+                        <div style="margin:3px 0px 0px 20px;">
+                            <span id="time3">2017/8/16 14:14:13</span>
+                        </div>
+                    </div>
+
+
+                    <div class="absolute" style="display: inline-block;top:120px;left: 257px;">
+                        <span class=" icon icon-point-blue-big"> </span>
+
+                    </div>
+                    <div class="absolute" style="display: inline-block;top:703px;left: 650px;">
+                        <span class=" icon icon-point-blue-big"> </span>
+
+                    </div>
+
+
+                    <div id="xungpath">
+                        <span class="absolute icon icon-point-blue " data-value="1" style="top:160px;left:275px;"> </span>
+                        <span class="absolute icon icon-point" data-value="2" style="top:250px;left:295px;"> </span>
+                        <span class="absolute icon icon-point" data-value="3" style="top:320px;left:320px;"> </span>
+                        <span class="absolute icon icon-point" data-value="4" style="top:420px;left:345px;"> </span>
+                        <span class="absolute icon icon-point" data-value="5" style="top:450px;left:425px;"> </span>
+                    </div>
+                    <div id="xungpath1">
+                        <span class="absolute icon icon-point icon-point-blue " data-value="6" style="top:520px;left:535px;"> </span>
+                        <span class="absolute icon icon-point" data-value="7" style="top:640px;left:555px;"> </span>
+                        <span class="absolute icon icon-point" data-value="8" style="top:565px;left:655px;"> </span>
+                        <span class="absolute icon icon-point" data-value="9" style="top:460px;left:705px;"> </span>
+                        <span class="absolute icon icon-point" data-value="10" style="top:340px;left:715px;"> </span>
+                    </div>
+                    <div id="xungpath2">
+                        <span class="absolute icon icon-point icon-point-blue " data-value="11" style="top:260px;left:715px;"> </span>
+                        <span class="absolute icon icon-point" data-value="12" style="top:170px;left:755px;"> </span>
+                        <span class="absolute icon icon-point" data-value="13" style="top:100px;left:705px;"> </span>
+                        <span class="absolute icon icon-point" data-value="14" style="top:135px;left:545px;"> </span>
+                        <span class="absolute icon icon-point" data-value="15" style="top:155px;left:405px;"> </span>
+                    </div>
+
+                </div>
+                <div class="c-m">
+                    <div class="complaints">
+                        <div>
+                            <div>
+                                <p>工程<span>报事</span></p>
+                            </div>
+                            <div>
+                                <p>环境<span>报事</span></p>
+                            </div>
+                            <div>
+                                <p>安全<span>报事</span></p>
+                            </div>
+                            <div>
+                                <p>客服<span>报事</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <div>{{complaints.customerService}}<span style="font-size: 14px">件</span></div>
+                            <div>{{complaints.group}}<span style="font-size: 14px">件</span></div>
+                            <div>{{complaints.group1}}<span style="font-size: 14px">件</span></div>
+                            <div>{{complaints.group2}}<span style="font-size: 14px">件</span></div>
+                        </div>
+                    </div>
+                    <div class="rate-scan">
+                        <div class="rate-item">
+                            <div>
+                                <p>收费率</p>
+                                <p class="egl-t">Charge rate</p>
+                            </div>
+                            <div class="reate-item-scan">
+                                <div>
+                                    <watch-big :size='{width:76,height:38}' :info="tollNewsSatisfaction.toll" class="absolute">
+                                    </watch-big>
+                                </div>
+                                <div style="width: 50%">{{tollNewsSatisfaction.toll}}%</div>
+                            </div>
+                        </div>
+
+                        <div class="rate-item">
+                            <div>
+                                <p>报事完结率</p>
+                                <p class="egl-t">Completion rate </p>
+                            </div>
+                            <div class="reate-item-scan">
+                                <div>
+                                    <watch-big :size='{width:76,height:38}' :info="tollNewsSatisfaction.news" class="absolute">
+                                    </watch-big>
+                                </div>
+                                <div style="width: 50%">{{tollNewsSatisfaction.news}}%</div>
+                            </div>
+                        </div>
+                        <div class="rate-item">
+                            <div>
+                                <p>业主满意度</p>
+                                <p class="egl-t">Owner satisfaction</p>
+                            </div>
+                            <div class="reate-item-scan">
+                                <div>
+                                    <watch-big :size='{width:76,height:38}' :info="tollNewsSatisfaction.satisfaction" class="absolute">
+                                    </watch-big>
+                                </div>
+                                <div style="width: 50%">{{tollNewsSatisfaction.satisfaction}}%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="m-3">
+            <!--视屏模块-->
+            <div class="minor">
+
+                <div class="monitor-module">
+                    <!--视屏模块一  -->
+                    <div class="monitor-left">
+                        <video id="myPlayer1" poster="" controls muted playsinline webkit-playsinline autoplay>
+                        <source src="http://hls.open.ys7.com/openlive/ab025638227f45afa946824277c65e5e.m3u8"
+                                type="application/x-mpegURL"/>
+                    </video>
+                        <p class="monitor-title">监控一</p>
+                    </div>
+                    <!--视屏模块二 media-b-->
+                    <div class="monitor-right">
+                        <video id="myPlayer2" poster="" controls muted playsinline webkit-playsinline autoplay>
+                        <source src="http://hls.open.ys7.com/openlive/423581e406624aa5a3ffa5d5bb173dbd.m3u8" 
+								type="application/x-mpegURL"/>
+                    </video>
+                        <p class="monitor-title">监控二</p>
+                    </div>
+                </div>
+                <div class="swiper-container" id="m_swiper_container_1">
+                    <div class="monitor-list swiper-wrapper">
+                        <!--背景变化-->
+                        <div class="monitor-item  swiper-slide " v-for="item in monitorFenList" :class="item.activ=='1' ? 'green-border':'green-border'">
+                            <!--上-->
+                            <div class="monitor-item-top">
+                                <!--图标 样式变化-->
+                                <span v-if="item.activ=='1'" class="camera icon green-camera"></span>
+                                <span v-if="item.activ=='0'" class="camera icon green-camera"></span>
+                                <div class="monitor-item-content">
+                                    <p class="scall-font">正在监控中</p>
+                                    <p>{{item.address}}</p>
+                                </div>
+                            </div>
+                            <!--下-->
+                            <div class="monitor-item-bottom">
+                                <span class="scall-font">运行状态</span>
+                                <!--  字体颜色内容变化-->
+                                <span v-if="item.status=='0'" class="scall-font normal-font ">运行正常</span>
+                                <span v-if="item.status=='1'" class="scall-font abnormal-font">运行异常</span>
+                                <span v-if="item.status=='2'" class="scall-font service-font">运行维修</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--设备情况-->
+            <div class="equipment-condition main-b">
+
+                <div>
+                    <div class="table-equipment">
+                        <title-all :info="'设备情况'" :size="{width:503,height:50}"></title-all>
+
+                        <div class="equipment-condition-title">
+                            <span></span>
+                            <span>监控</span>
+                            <span>电子围栏</span>
+                            <span>电梯</span>
+                            <span>消防</span>
+
+                        </div>
+                        <div class="equipment-condition-content">
+                            <span>设备</span>
+                            <span v-for="item in equipmentState.equipment">{{item}}</span>
+
+                        </div>
+                        <div class="equipment-condition-content">
+                            <span>当年报警</span>
+                            <span v-for="item in equipmentState.monthAlarm">{{item}}次</span>
+                        </div>
+                        <div class="equipment-condition-content">
+                            <span>当月报警</span>
+                            <span v-for="item in equipmentState.dayAlarm">{{item}}次</span>
+                        </div>
+                    </div>
+                    <div class="bar-char">
+                        <div>
+                            <bar-only :info="devicenorepair" :size="{width:300,height:250}"></bar-only>
+                        </div>
+                        <p> 设备完好率</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!--消防数据-->
+            <div class="device">
+                <div class="device-content">
+                    <div class="device-left-moudle">
+                        <div class="fire-moudle device-type">
+                            <p>消防 Fire</p>
+                            <div id="fire" class="swiper-container" id="m_swiper_container_2">
+                                <div class="device-list swiper-wrapper">
+
+                                    <div class="device-item  swiper-slide" v-for="item in allTool.firleList" :class=" {'icon-selecte' : item.active=='1'}">
+                                        <span v-if="item.status=='0' " class="icon  icon-fir-normal"></span>
+                                        <span v-if="item.status=='1' " class="icon  icon-fir-abnormal"></span>
+                                        <span v-if="item.status=='2' " class="icon  icon-fir-service"></span>
+                                        <div>
+                                            <p>{{item.name}}</p>
+                                            <p>{{item.address}}</p>
+                                            <p v-if="item.status=='0' " class="normal-font">•运行正常</p>
+                                            <p v-if="item.status=='1' " class="abnormal-font">•运行异常</p>
+                                            <p v-if="item.status=='2' " class="service-font">•维修中</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="power-moudle device-type ">
+                            <p>变配电 Power supply and distribution</p>
+                            <div id="power" class="swiper-container">
+                                <div class="device-list swiper-wrapper">
+
+                                    <div class="device-item  swiper-slide" v-for="item in allTool.powerList" :class=" {'icon-selecte' : item.active=='1'}">
+                                        <span v-if="item.status=='0' " class="icon  icon-power-normal"></span>
+                                        <span v-if="item.status=='1' " class="icon  icon-power-abnormal"></span>
+                                        <span v-if="item.status=='2' " class="icon  icon-power-service"></span>
+                                        <div>
+                                            <p>{{item.name}}</p>
+                                            <p>{{item.address}}</p>
+                                            <p v-if="item.status=='0' " class="normal-font">•运行正常</p>
+                                            <p v-if="item.status=='1' " class="abnormal-font">•运行异常</p>
+                                            <p v-if="item.status=='2' " class="service-font">•维修中</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="drainage-moudle device-type">
+                            <p>排水 Drainage</p>
+                            <div id="drainage" class="swiper-container">
+                                <div class="device-list swiper-wrapper">
+                                    <div class="device-item  swiper-slide" v-for="item in allTool.drainageList" :class=" {'icon-selecte' : item.active=='1'}">
+                                        <span v-if="item.status=='0' " class="icon  icon-drainage-normal"></span>
+                                        <span v-if="item.status=='1' " class="icon  icon-drainage-abnormal"></span>
+                                        <span v-if="item.status=='2' " class="icon  icon-drainage-service"></span>
+                                        <div>
+                                            <p>{{item.name}}</p>
+                                            <p>{{item.address}}</p>
+                                            <p v-if="item.status=='0' " class="normal-font">•运行正常</p>
+                                            <p v-if="item.status=='1' " class="abnormal-font">•运行异常</p>
+                                            <p v-if="item.status=='2' " class="service-font">•维修中</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="device-right-moudle">
+                        <div class="elevator-moudle device-type ">
+                            <p>电梯 The elevator</p>
+                            <div id="elevator" class="swiper-container">
+                                <div class="device-list swiper-wrapper">
+                                    <div class="device-item  swiper-slide" v-for="item in allTool.elevatorList" :class=" {'icon-selecte' : item.active=='1'}">
+                                        <span v-if="item.status=='0' " class="icon  icon-elevator-normal"></span>
+                                        <span v-if="item.status=='1' " class="icon  icon-elevator-abnormal"></span>
+                                        <span v-if="item.status=='2' " class="icon  icon-elevator-service"></span>
+                                        <div>
+                                            <p>{{item.name}}</p>
+                                            <p>{{item.address}}</p>
+                                            <p v-if="item.status=='0' " class="normal-font">•运行正常</p>
+                                            <p v-if="item.status=='1' " class="abnormal-font">•运行异常</p>
+                                            <p v-if="item.status=='2' " class="service-font">•维修中</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="waybrake-moudle device-type">
+                            <p>门禁／道闸 Entrance guard way brake</p>
+                            <div id="waybrake" class="swiper-container">
+                                <div class="device-list swiper-wrapper">
+                                    <div class="device-item  swiper-slide" v-for="item in allTool.wayBrakeList" :class=" {'icon-selecte' : item.active=='1'}">
+                                        <span v-if="item.status=='0' " class="icon  icon-waybrake-normal"></span>
+                                        <span v-if="item.status=='1' " class="icon  icon-waybrake-abnormal"></span>
+                                        <span v-if="item.status=='2' " class="icon  icon-waybrake-service"></span>
+                                        <div>
+                                            <p>{{item.name}}</p>
+                                            <p>{{item.address}}</p>
+                                            <p v-if="item.status=='0' " class="normal-font">•运行正常</p>
+                                            <p v-if="item.status=='1' " class="abnormal-font">•运行异常</p>
+                                            <p v-if="item.status=='2' " class="service-font">•维修中</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fence-moudle device-type">
+                            <p>电子围栏 Electronic fence</p>
+                            <div id="fence" class="swiper-container">
+                                <div class="device-list swiper-wrapper">
+                                    <div class="device-item  swiper-slide" v-for="item in allTool.fenceList" :class=" {'icon-selecte' : item.active=='1'}">
+                                        <span v-if="item.status=='0' " class="icon  icon-fence-normal"></span>
+                                        <span v-if="item.status=='1' " class="icon  icon-fence-abnormal"></span>
+                                        <span v-if="item.status=='2' " class="icon  icon-fence-service"></span>
+                                        <div>
+                                            <p>{{item.name}}</p>
+                                            <p>{{item.address}}</p>
+                                            <p v-if="item.status=='0' " class="normal-font">•运行正常</p>
+                                            <p v-if="item.status=='1' " class="abnormal-font">•运行异常</p>
+                                            <p v-if="item.status=='2' " class="service-font">•维修中</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="device-show ">
+                    <p>维保设备 Repair equipment</p>
+                    <div class="device-details ">
+                        <!--<img src="img/weibaoxiu.png" style="margin-top: 40px; margin-left: 78px;">-->
+                        <!--<div style="color: white; opacity: 0.5; margin-top: 40px; margin-left: 38px;">-->
+                        <!--项目尚未接入，暂无报修信息-->
+                        <!--</div>-->
+                        <div class="device-details-info">
+                            <p><span>维保设备</span> <span>{{detailedInfo.name}}</span></p>
+                            <p><span>设备编号</span> <span>{{detailedInfo.No}}</span></p>
+                            <p><span>安装位置</span> <span>{{detailedInfo.position}}</span></p>
+                            <p><span>生产厂商</span> <span>{{detailedInfo.factoryOwner}}</span></p>
+                        </div>
+
+                        <div class="device-details-renyuanlist">
+                            <p><span>维保单位</span> <span>{{detailedInfo.maintenanceUnit}}</span></p>
+                            <p><span>单位编号</span> <span>{{detailedInfo.format}}</span></p>
+                            <p><span>维保时间</span> <span>{{detailedInfo.warranty}}</span></p>
+                            <p><span>维保人员</span> <span>刘强</span></p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="t-icon">
+            智能社区
+        </div>
+
+    </div>
+    <div class="loading">
+        <div id="robot">
+            <div class="piston">
+                <div class="rotator"></div>
+                <div class="block">
+                    T
+                    <div class="arm"></div>
+                </div>
+            </div>
+            <div class="piston">
+                <div class="rotator"></div>
+                <div class="block">
+                    Q
+                    <div class="arm"></div>
+                </div>
+            </div>
+            <div class="piston">
+                <div class="rotator"></div>
+                <div class="block">
+                    大
+                    <div class="arm"></div>
+                </div>
+            </div>
+            <div class="piston">
+                <div class="rotator"></div>
+                <div class="block">
+                    数
+                    <div class="arm"></div>
+                </div>
+            </div>
+            <div class="piston">
+                <div class="rotator"></div>
+                <div class="block">
+                    据
+                    <div class="arm"></div>
+                </div>
+            </div>
+        </div>
+        <p>0%</p>
+    </div>
+    <script src="component/bar_only.js"></script>
+    <script src="component/watch_big.js"></script>
+    <script src="component/cricle_ring.js"></script>
+    <script src="component/title.js"></script>
+    <script src="js/app.js"></script>
+    <script src="lib/ezuikit.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

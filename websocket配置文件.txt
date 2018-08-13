@@ -1,0 +1,8 @@
+public 文件下 PC和IPAD文件中 js文件的app.js文件
+  
+public\PC\js\app.js
+public\IPAD\js\app.js
+
+
+找到 ws://10.15.208.48:9088
+修改成当前域名和端口号

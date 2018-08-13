@@ -1,0 +1,663 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" content="xxxx">
+    <title>智能家居</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="C-UA-Compatible" content="IE=Edge">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.vticker-min.js"></script>
+    <script type="text/javascript" src="js/jquery.timers-1.2.js"></script>
+    <script type="text/javascript" src="js/jquery.countup.min.js"></script>
+
+
+    <!--
+        作者：1179122163@qq.com
+        二次修改:luanwei
+        时间：2018-01-12
+        描述：数据文件
+    -->
+    <script type="text/javascript" src="data/wyfwLineData.js"></script>
+    <script type="text/javascript" src="data/shwfLineData.js"></script>
+    <script type="text/javascript" src="data/jjfwLineData.js"></script>
+    <script type="text/javascript" src="data/baseData.js"></script>
+    <!--
+        作者：1179122163@qq.com
+        二次修改:luanwei
+        时间：2018-01-12
+        描述：引用的js插件
+    -->
+
+    <script type="text/javascript" src="js/jquery.tabs.js"></script>
+    <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/echarts3.8.4.js"></script>
+
+    <!--
+        作者：1179122163@qq.com
+        二次修改:luanwei
+        时间：2018-01-12
+        描述：公共样式、方法
+    -->
+    <script type="text/javascript" src="js/lineChart.js"></script>
+    <script type="text/javascript" src='js/public.js'></script>
+    <script type="text/javascript" src="js/progress.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            //折线图轮播时间设置
+            $('.demo1').Tabs({//tab动画
+                auto: 8000,
+
+            });
+            $('.demo2').Tabs({
+                auto: 8000,
+
+            });
+            $('.demo3').Tabs({
+                auto: 8000,
+
+            });
+
+        })
+
+    </script>
+    <script src="js/loading.js">
+
+    </script>
+    <style>
+          /*.red {*/
+            /*color: red !important;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div class="Z-box clearFix">
+    <!--第一部分-->
+    <div class="Z-ptsc" style="display: none">
+        <h5 class="Z-title">平台输出</h5>
+        <!--
+            作者：1179122163@qq.com
+            时间：2018-01-27
+            描述：物业服务
+        -->
+        <div class="Z-ptsc1" style="display: none">
+            <h6 class="Z-titles">物业服务</h6>
+            <ul class="Z-figure clearFix">
+                <li>
+                    <img src="images/z-icon_search.png" alt=""/>
+                    <p class="counter red" id='wyAllCount'></p>
+                    <span>查询总数</span>
+                </li>
+                <li>
+                    <img src="images/z-icon_reply.png" alt=""/>
+                    <p class="counter red" id="wyAnswerCount"></p>
+                    <span>应答总数</span>
+                </li>
+                <li>
+                    <img src="images/z-icon_succ.png" alt=""/>
+                    <p><i class="counter red" id="wyPercent"></i><span>%</span></p>
+                    <span>成功率</span>
+                </li>
+                <li>
+                    <img src="images/z-icon_time.png" alt=""/>
+                    <p><i class="counter red" id="wyMinute"></i><span>s</span></p>
+                    <span>平均响应时间</span>
+                </li>
+            </ul>
+            <!--
+             作者：1179122163@qq.com
+             时间：2018-01-27
+             描述：物业服务折现图
+         -->
+            <div class="demo1">
+                <ul class="tab_menu Z-LUT clearFix">
+                    <li class="current"><p>物业费查询</p></li>
+                    <li><p>物业缴费</p></li>
+                    <li><p>语音报事报修</p></li>
+                    <li><p>呼叫物业中心</p></li>
+
+                </ul>
+                <div class="tab_box Z-chart">
+                    <div id='wyfwzx' class="Z-chart">
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <!--
+                作者：1179122163@qq.com
+                时间：2018-01-27
+                描述：生活服务
+            -->
+        <div class="Z-ptsc1 Z-ptsc2">
+            <h6 class="Z-titles">生活服务</h6>
+            <ul class="Z-figure clearFix">
+                <li>
+                    <img src="images/z-icon_search.png" alt=""/>
+                    <p class="counter red" id='shAllCount'></p>
+                    <span>查询总数</span>
+                </li>
+                <li>
+                    <img src="images/z-icon_reply.png" alt=""/>
+                    <p class="counter red" id="shAnswerCount"></p>
+                    <span>应答总数</span>
+                </li>
+                <li>
+                    <img src="images/z-icon_succ.png" alt=""/>
+                    <p><i class="counter red" id="shPercent"></i><span>%</span></p>
+                    <span>成功率</span>
+                </li>
+                <li>
+                    <img src="images/z-icon_time.png" alt=""/>
+                    <p><i class="counter red" id="shMinute"></i><span>s</span></p>
+                    <span>平均响应时间</span>
+                </li>
+            </ul>
+            <!--
+                作者：1179122163@qq.com
+                时间：2018-01-27
+                描述：生活服务折线图
+            -->
+            <div class="demo2">
+                <ul class="tab_menu Z-LUT Z-LUT1 clearFix">
+                    <li class="current"><p>外卖</p></li>
+                    <li><p>家政</p></li>
+                    <li><p>维修</p></li>
+                    <li><p>天气查询</p></li>
+                    <li><p>新闻播报</p></li>
+                </ul>
+                <div class="tab_box Z-chart">
+                    <div id='shfwzx' class="Z-chart">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--第二部分-->
+    <div class="Z-znjd">
+        <!--
+            作者：1179122163@qq.com
+            时间：2018-01-27
+            描述：智能家电轮播
+        -->
+        <div class="Z-znjd1">
+            <h5 class="Z-title Z-T">智能家电厂商<span class="counter" id="electricalNum"></span><i>家</i></h5>
+            <!--<h5 class="Z-title"></h5>-->
+            <div id="news-container1">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper" id='carousel'>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <!--
+            作者：1179122163@qq.com
+            时间：2018-01-27
+            描述：家居服务
+        -->
+        <div class="Z-ptsc1 Z-ptsc3">
+
+            <h5 class="Z-title Z-T">家居服务</h5>
+            <ul class="Z-figure clearFix">
+                <li>
+                    <img src="images/z-icon_search.png" alt=""/>
+                    <p class="counter red" id='jjAllCount'></p>
+                    <span>查询总数</span>
+                </li>
+                <li>
+                    <img src="images/z-icon_reply.png" alt=""/>
+                    <p class="counter red" id="jjAnswerCount"></p>
+                    <span>应答总数</span>
+                </li>
+                <li>
+                    <img src="images/z-icon_succ.png" alt=""/>
+                    <p><i class="counter red" id="jjPercent"></i><span>%</span></p>
+                    <span>成功率</span>
+                </li>
+                <li>
+                    <img src="images/z-icon_time.png" alt=""/>
+                    <p><i class="counter red" id="jjMinute"></i><span>s</span></p>
+                    <span>平均响应时间</span>
+                </li>
+            </ul>
+            <!--
+                作者：1179122163@qq.com
+                时间：2018-01-27
+                描述：家居服务折线图
+            -->
+            <div class="demo3">
+                <ul class="tab_menu Z-LUT  clearFix">
+                    <li class="current"><p>设备控制</p></li>
+                    <li><p>场景</p></li>
+                    <li><p>安防报警</p></li>
+                    <li><p>消息推送</p></li>
+                </ul>
+                <div class="tab_box Z-chart">
+                    <div id='jjfwzx' class="Z-chart">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--第三部分-->
+    <div class="Z-ztfbB">
+        <div class="Z-headline">智慧家居</div>
+        <div class="Z-ztfb">
+            <h5 class="Z-titles1">总体分布</h5>
+
+            <ul class="Z-map" id='map'>
+                <script>
+                    $(function () {
+                        var mapNum = 0;
+                        //每隔5s加载一次地图
+                        $('body').everyTime('5s', function () {
+                            mapNum++;
+                            if (mapNum == (alength - 1)) {
+                                mapNum = 0;
+                            }
+                            $('.Z-map li').removeClass('Z-SFon');
+                            $('.Z-map li').eq(mapNum).addClass('Z-SFon');
+                            console.log(mapNum + "mapNum");
+                            loadMapData(mapDetailData[mapNum]);
+                        })
+                    });
+                </script>
+            </ul>
+
+
+            <div class="Z-sum">
+                <p><img src="images/z-icon_sum.png" alt=""/>总数<span class="counter" id="allCount"></span></p>
+                <p><img src="images/z-icon_map.png" alt=""/>省份数<span class="counter" id="provinec"></span></p>
+                <p><img src="images/z-iocn_city.png" alt=""/>城市数<span class="counter" id="cityCount"></span></p>
+            </div>
+            <div class="Z-city">
+                <div class="Z-c1">
+                    <div class="Z-c2">
+                        <div class="Z-c3"></div>
+                    </div>
+                    <img src="images/z-icon_white.png" alt=""/>
+                </div>
+                <div class="Z-cityF">
+                    <h4 id="cityName"></h4>
+                    <p><span>总&nbsp;&nbsp;&nbsp;数 : </span><em id='allNumber'></em></p>
+                    <p><span class="Z-ml">在线数 : </span><em id='onlineNumber'></em></p>
+                    <div class="Z-percent">
+                        <canvas id="canvas" width="120" height="120" style="background:rgba(0,0,0,0);"></canvas>
+
+                        <i><span id='allPercent'></span>%</i>
+                        <span>全国占比</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--第四部分-->
+    <div class="Z-sjbg">
+        <h5 class="Z-title Z-T">数据报告</h5>
+        <ul class="Z-sjbg1 clearFix">
+            <li>
+                <div class="Z-imgb"><img src="images/iocn_lightning thir.png" alt=""/></div>
+                <script type="text/javascript" src="js/ybpChar.js"></script>
+                <div id='ybp' style="width: 500px; height: 600px;"></div>
+                <script>
+                    //加载今日异常图形
+                    var myChart = echarts.init(document.getElementById('ybp'));
+                    getYbpOption(myChart, 50);
+                </script>
+
+
+                <div class="Z-sjF">
+                    <p>能耗监测</p>
+                    <div class="Z-frequency">
+                        <span class="counter red" id='unusualNum1'></span><span class="counter red"
+                                                                                id='unusualNum2'></span><span
+                            class="counter red" id='unusualNum3'></span><i>次</i>
+                    </div>
+                    <p class="Z-yc">今日异常数</p>
+                </div>
+            </li>
+            <li>
+                <div class="Z-imgb Z-ibg">
+                    <div class="surePass  Z-SP1">
+                        <canvas class="circleRun" data-run="0" id="canvasThree" width="164" height="164"></canvas>
+
+                    </div>
+                    <div class="surePass Z-SP2">
+                        <canvas class="circleRun" data-run="0" id="canvasThree2" width="124" height="124"></canvas>
+
+                    </div>
+                    <div class="surePass Z-SP3">
+                        <canvas class="circleRun" data-run="0" id="canvasThree3" width="88" height="88"></canvas>
+
+                    </div>
+                    <p class="Z-SP1p"><span id="userFWNum1"></span></p>
+                    <p class="Z-SP2p"><span id="userFWNum2"></span></p>
+                    <p class="Z-SP3p"><span id="userFWNum3"></span></p>
+                </div>
+
+                <div class="Z-sjF Z-sjF1">
+                    <div class="Z-server">
+                        <div class="Z-1"><p></p>物业</div>
+                        <div class="Z-2"><p></p>家居</div>
+                        <div class="Z-3"><p></p>生活</div>
+                    </div>
+                    <p class="Z-yc">使用服务用户数</p>
+                </div>
+            </li>
+        </ul>
+        <div class="Z-form" style="display: none">
+            <div class="Z-tite clearFix">
+                <span>TOP</span>
+                <span>AQI</span>
+                <span>PM2.5</span>
+                <span>空气质量</span>
+            </div>
+            <ul class="Z-topListBG">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div id="news-container">
+            </div>
+        </div>
+
+        <div class="Z-gjc">
+            <!--关键词-->
+            <div class="Z-gjc1" style="display: none">
+                <div class="Z-title3">
+                    <h4><img src="images/z-icon_chat.png"/>热聊关键词</h4>
+                </div>
+                <ul id="div1" class="Z-gjc1List">
+                    <!--<li class="Z-key1">天气情况</li>
+                    <li class="Z-key2">音乐搜索</li>
+                    <li class="Z-key3">小区身边事</li>
+                    <li class="Z-key4">调侃小白</li>
+                    <li class="Z-key5">场景推荐</li>
+                    <li class="Z-key6">流行指数</li>
+                    <li class="Z-key7">吐槽</li>
+                    <li class="Z-key8">八卦娱乐</li>
+                    <li class="Z-key9">儿童故事</li>
+                    <li class="Z-key10">天气情况</li>
+                    <li class="Z-key11">天气情况</li>
+                    <li class="Z-key12">音乐搜索</li>
+                    <li class="Z-key13">小区身边事</li>
+                    <li class="Z-key14">调侃小白</li>
+                    <li class="Z-key15">场景推荐</li>-->
+                </ul>
+            </div>
+            <!--累计-->
+            <div class="Z-gjc2">
+                <div class="Z-title3">
+                    <h4><img src="images/z-icon_count.png" alt=""/>累计服务统计</h4>
+                </div>
+                <ul class="Z-gjc2List">
+                    <li class="clearFix">
+                        <p class="Z-sv fl">费用查询</p>
+                        <div class="Z-bar fl">
+                            <div class="Z-bar2"></div>
+                            <span id="fyquery"></span>
+                        </div>
+                    </li>
+                    <li class="clearFix">
+                        <p class="Z-sv fl">家政服务</p>
+                        <div class="Z-bar fl">
+                            <div class="Z-bar2"></div>
+                            <span id="jzfw"></span>
+                        </div>
+                    </li>
+                    <li class="clearFix">
+                        <p class="Z-sv fl">设备控制</p>
+                        <div class="Z-bar fl">
+                            <div class="Z-bar2"></div>
+                            <span id="sbcontrol"></span>
+                        </div>
+                    </li>
+                    <li class="clearFix">
+                        <p class="Z-sv fl">场景控制</p>
+                        <div class="Z-bar fl">
+                            <div class="Z-bar2"></div>
+                            <span id="cjcontrol"></span>
+                        </div>
+                    </li>
+                    <li class="clearFix">
+                        <p class="Z-sv fl">新闻播报</p>
+                        <div class="Z-bar fl">
+                            <div class="Z-bar2"></div>
+                            <span id="newsplay"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="Z-gjc3">
+                <div class="Z-title3">
+                    <h4><img src="images/z-icon_user.png" alt=""/>用户分析</h4>
+                </div>
+                <ul class="Z-gjc3List">
+                    <li>
+                        <h4>日活跃用户</h4>
+                        <p class="counter" id="dayUser"></p>
+                        <div class="waveMiddle waveAnimation" id="hdLineChar">
+                            <div class="waveBottom" style="background-image:url(images/2.png)"></div>
+
+                        </div>
+
+
+                        <span>Daily Active User</span>
+                    </li>
+                    <li>
+                        <h4>周活跃用户</h4>
+                        <p class="counter" id="weekUser"></p>
+                        <div class="waveMiddle" id="hdBarChar">
+                            <div class="music">
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </div>
+                        </div>
+
+                        <span>Weekly Active Users</span>
+                    </li>
+                    <li>
+                        <h4>月活跃用户</h4>
+                        <p class="counter" id="monthUser"></p>
+                        <div class="waveMiddle1">
+                            <div class="Z-month">
+                                <img src="images/z-icon_month.png" alt=""/>
+                            </div>
+                        </div>
+                        <span>Monthly Active User</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--第五部分-->
+
+</div>
+<div class="loading">
+    <div id="robot">
+        <div class="piston">
+            <div class="rotator"></div>
+            <div class="block">
+                T
+                <div class="arm"></div>
+            </div>
+        </div>
+        <div class="piston">
+            <div class="rotator"></div>
+            <div class="block">
+                Q
+                <div class="arm"></div>
+            </div>
+        </div>
+        <div class="piston">
+            <div class="rotator"></div>
+            <div class="block">
+                大
+                <div class="arm"></div>
+            </div>
+        </div>
+        <div class="piston">
+            <div class="rotator"></div>
+            <div class="block">
+                数
+                <div class="arm"></div>
+            </div>
+        </div>
+        <div class="piston">
+            <div class="rotator"></div>
+            <div class="block">
+                据
+                <div class="arm"></div>
+            </div>
+        </div>
+    </div>
+    <p>0%</p>
+</div>
+
+<!-- Initialize Swiper -->
+<script>
+    var xx = 0;//智能家电厂商 亮度动画
+    $('body').everyTime('3s', function () {
+        if (xx == 4) {
+            xx = 0;
+            $(".swiper-slide-active").find(".Z-znjdList li").removeClass('Z-on');
+            $(".swiper-slide-active").find(".Z-znjdList li").eq(0).addClass('Z-on');
+            xx++;
+        } else {
+            $(".swiper-slide-active").find(".Z-znjdList li").removeClass('Z-on');
+            $(".swiper-slide-active").find(".Z-znjdList li").eq(xx).addClass('Z-on');
+            xx++;
+        }
+        //console.log("xx"+xx);
+    })
+
+</script>
+<script type="text/javascript">
+    function $$(selector, context) {
+        context = context || document;
+        var elements = context.querySelectorAll(selector);
+        return Array.prototype.slice.call(elements);
+    }
+
+    $$('.circular').forEach(function (el) {
+        var NS = "http://www.w3.org/2000/svg";
+
+        var svg = document.createElementNS(NS, "svg");
+        svg.setAttribute("viewBox", "0 0 100 100");
+
+        var circle = document.createElementNS(NS, "path");
+        circle.setAttribute("d", "M 0,55 a 55,55 0 1,1 0,1 z");
+        circle.setAttribute("id", "circle");
+
+        var text = document.createElementNS(NS, "text");
+        var textPath = document.createElementNS(NS, "textPath");
+        textPath.setAttributeNS("http://www.w3.org/1999/xlink", 'xlink:href', '#circle');
+        textPath.textContent = el.textContent;
+        text.appendChild(textPath);
+
+        svg.appendChild(circle);
+        svg.appendChild(text);
+
+        el.textContent = '';
+        el.appendChild(svg);
+    });
+</script>
+
+<script>
+    window.onload = function () {//地图全国占比
+        var canvas = document.getElementById('canvas'),
+            context = canvas.getContext('2d'),
+            centerX = canvas.width / 2,
+            centerY = canvas.height / 2,
+            rad = Math.PI * 2 / 100,
+            speed = 0.1;
+
+        //绘制5像素宽的运动外圈
+        function blueCircle(n) {
+            context.save();
+            context.strokeStyle = "#fff";
+            context.lineWidth = 7;
+            context.beginPath();
+            context.arc(centerX, centerY, 50, -Math.PI / 2, -Math.PI / 2 + n * rad, false);
+            context.stroke();
+            context.closePath();
+            context.restore();
+        }
+
+        //绘制白色外圈
+        function whiteCircle() {
+            context.save();
+            context.beginPath();
+            context.lineWidth = 1;
+            context.strokeStyle = "#89b3fa";
+            context.arc(centerX, centerY, 50, 0, Math.PI * 2, false);
+            context.stroke();
+            context.closePath();
+            context.restore();
+        }
+
+        //动画循环
+        (function drawFrame() {
+            window.requestAnimationFrame(drawFrame);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            whiteCircle();
+            blueCircle(speed);
+            var i = 8.9;
+            if (speed > 100) speed = 0;
+
+            speed += 0.4;
+            if (speed >= i) {
+                speed = i;
+            }
+        }());
+    }
+</script>
+<script>
+    $(function () {
+        function serviceRatio(arr, maxN) {//累计服务统计进度 动画
+            var barLength = $('.Z-gjc2List .Z-bar2').length;
+            for (var i = 0; i < barLength; i++) {
+                $('.Z-gjc2List .Z-bar2').eq(i).animate({width: arr[i] / maxN * 460 + 'px'}, 5000);
+            }
+
+        }
+
+        //数据
+        serviceRatio([2108, 1248, 3481, 1379, 971], 5000)
+    })
+</script>
+</body>
+</html>

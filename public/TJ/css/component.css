@@ -1,0 +1,284 @@
+.title-all {
+    position: relative;
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    background-color: transparent;
+    padding-left: 25px;
+    font-family: PingFangSC-Semibold;
+    font-size: 26px;
+    color: #DDC09B;
+    letter-spacing: 0.61px;
+
+}
+
+.title-all span:nth-of-type(1), .title-all span:nth-of-type(2), .title-all span:nth-of-type(3) {
+    float: right;
+    display: inline-block;
+    width: 20px;
+    height: 8px;
+    margin: 21px 3px;
+    vertical-align: middle;
+
+
+}
+
+
+.title-all span:nth-of-type(1) {
+    background: #cfaf87;
+    margin-right: 7px;
+}
+
+.title-all span:nth-of-type(2) {
+    background: #bd9769;
+}
+
+.title-all span:nth-of-type(3) {
+    background: #a27d4f;
+
+}
+
+.title-all span:nth-of-type(4) {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 10px;
+    height: 4px;
+    background-color: #a27d4f;
+    border-radius: 2px;
+}
+
+.title-all span:nth-of-type(5) {
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+    width: 10px;
+    height: 4px;
+    background-color: #a27d4f;
+    border-radius: 2px;
+}
+
+.title-all span:nth-of-type(6) {
+    position: absolute;
+    bottom: -1px;
+    right: 20px;
+    left: 20px;
+    height: 2px;
+    opacity: 0.75;
+    background-color: #605240;
+
+}
+
+.title-all span:nth-of-type(7) {
+    position: absolute;
+    bottom: -1px;
+    left: 19px;
+    height: 2px;
+    width: 2px;
+    background-color: white;
+
+}
+
+.title-all span:nth-of-type(8) {
+    position: absolute;
+    bottom: -1px;
+    right: 19px;
+    height: 2px;
+    width: 2px;
+    background-color: white;
+
+}
+
+
+
+.cricle-rate-out {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    opacity: 0.4;
+    font-size: 20px;
+    color: white;
+    border-radius: 50%;
+}
+
+.cricle-rate-out > img {
+    width: 100%;
+    height: auto
+}
+
+.cricle-rate-out > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+
+    text-align: center;
+    line-height: 150px;
+}
+
+.cricle-out {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    opacity: 0.4;
+    border: 4px solid #1F5EC3;
+    border-radius: 50%;
+}
+
+.cricle-inner {
+    position: absolute;
+    width: 76px;
+    height: 76px;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    top: 33px;
+    text-align: center;
+    line-height: 68px;
+    left: 33px;
+    color: white;
+    font-size: 20px;
+}
+
+.all-line {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    top: 6px;
+    left: 4px;
+    border-radius: 50%;
+
+}
+
+.font12 {
+    font-size: 12px;
+}
+
+.all-line .cricle-zhizheng {
+    position: absolute;
+    display: inline-block;
+    background-color: white;
+    height: 18px;
+    left: 50%;
+    width: 3px;
+    transform-origin: center 65px;
+}
+
+.all-line div {
+    position: absolute;
+    display: inline-block;
+    background-color: #1F5EC3;
+    height: 18px;
+    left: 50%;
+    width: 3px;
+    transform-origin: center 65px;
+}
+
+.turn {
+    animation: turn 15s linear infinite;
+    -webkit-animation: turn 15s linear infinite;
+}
+
+@-moz-keyframes turn /* Firefox */
+{
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes turn /* google */
+{
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.all-line-rotate > div {
+    position: absolute;
+    display: inline-block;
+    background-color: #fff;
+    height: 14px;
+    left: 50%;
+    border-radius: 4px;
+    width: 6px;
+    transform-origin: center 65px;
+}
+
+.watch-background-pointer {
+    bottom: 0;
+    position: absolute !important;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    margin-left: 10%;
+    transform-origin: 100%;
+}
+
+.water-out {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    z-index: 0;
+}
+
+.water-scale div {
+    height: 10px;
+    position: absolute;
+    /* left: 50%; */
+    margin-left: 78px;
+    margin-top: 2px;
+    width: 3px;
+    opacity: 0.6;
+    background: #1F5EC3;
+    transform-origin: center 77px;
+    z-index: 1
+}
+
+.water-point div {
+    height: 10px;
+    position: absolute;
+    /* left: 50%; */
+    margin-left: 78px;
+    margin-top: 2px;
+    width: 3px;
+    opacity: 0.6;
+    background: #fff;
+    transform-origin: center 77px;
+    z-index: 2
+}
+
+.water-data {
+    position: absolute;
+    bottom: -10px;
+    left: 40px;
+    width: 80px;
+    font-size: 12px;
+    height: 40px;
+    z-index: 10;
+    background-color: #081234;
+    text-align: center;
+    color: white;
+}
+
+.water-data span:nth-of-type(1) {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.water-data span:nth-of-type(2) {
+
+}
+

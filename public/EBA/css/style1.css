@@ -1,0 +1,1631 @@
+﻿@charset "utf-8";
+/* CSS Document */
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+html,body {
+    width: 2266px;
+    height: 1080px;
+    overflow:hidden;
+    font: 12px/180% "PingFangSC-Regular", "Microsoft Yahei", Arial, "宋体", Helvetica, sans-serif, Verdana;
+}
+
+a {
+    blr: expression(this.onFocus=this.blur())
+}
+
+/*for IE*/
+a {
+    outline: none;
+    text-decoration: none;
+    color: #3d3d3d;
+}
+
+/*for Firefox*/
+img {
+    border: none;
+    display: block;
+}
+
+ol, ul, li, dl, dl dt, dl dd {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+i, em {
+    font-style: normal;
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+input {
+    border: 0 none;
+    outline: none;
+}
+
+textarea {
+    border: 0 none;
+    outline: none;
+}
+
+.clearFix:after {
+    display: block;
+    content: '';
+    clear: both
+}
+
+.clearFix {
+    zoom: 1
+}
+
+.Z-box1 {
+    width: 2266px;
+    height: 1080px;
+    background-image: linear-gradient(-180deg, #3b3b3b 0%, #1c1b1a 100%);
+    position: relative;
+}
+
+.Z-EBAT {
+    width: 1247px;
+    height: 68px;
+    line-height: 68px;
+    text-align: center;
+    background: url(../images/EBAtitle.png) no-repeat center;
+    position: absolute;
+    left: 509px;
+    font-size: 42px;
+    color: #624216;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+}
+
+.Z-EBA1 {
+    padding-top: 68px;
+    padding-left: 26px;
+    width: 612px;
+}
+
+.Z-gjc3List li {
+    width: 153px;
+    height: 116px;
+    background: rgba(236,195,143,0.5);
+    border-radius: 4px;
+    margin-right: 10px;
+    padding: 14px 16px 8px 16px;
+    float: left;
+}
+
+.Z-gjc3List li:last-child {
+    margin-right: 0px;
+}
+
+.Z-gjc3List li h4 {
+    opacity: 0.6;
+    font-family: PingFangSC-Semibold;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: normal;
+
+}
+
+.Z-gjc3List li p {
+    font-family: PingFangSC-Semibold;
+    font-size: 18px;
+    color: #FFFFFF;
+    line-height: 33px;
+    margin-top: 5px;
+}
+
+.Z-gjc3List li p span {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+.Z-gjc3List li i {
+    font-family: PingFangSC-Semibold;
+    font-size: 14px;
+    color: rgba(255,255,255,.26);
+}
+
+.Z-gjc3List li .Z-i2 {
+    font-size: 12px;
+    margin-right: 8px;
+}
+
+.Z-iBGM {
+    background: url(../images/E-img1.png) no-repeat center left;
+    background-size: 10px 9px;
+    padding-left: 14px;
+}
+
+.Z-gjc3List li .waveMiddle {
+    width: 100%;
+    margin: 0 auto;
+    height: 30px;
+    border-bottom: 1px solid #a69581;
+    line-height: 30px;
+    margin-top: -2px;
+    position: relative;
+
+}
+
+.Z-gjc3List li .waveMiddle canvas {
+    height: 30px !important;
+}
+
+.Z-gjc3List li .waveMiddle1 {
+    width: 100%;
+    margin: 0 auto;
+    height: 30px;
+    border-bottom: 1px solid #a69581;
+    position: relative;
+    line-height: 30px;
+    margin-top: -2px;
+}
+
+.Z-gjc3List li .waveMiddle img {
+    position: absolute;
+    left: 0px;
+    bottom: 6px;
+    width: 100%;
+    height: 22px;
+}
+
+.Z-month {
+    width: 100%;
+    height: 7px;
+    opacity: 0.26;
+    background: #FFFFFF;
+    position: relative;
+    top: 12px;
+}
+
+.Z-month .img {
+    position: absolute;
+    top: -6px;
+    left: -1px;
+    height: 20px;
+    width: 115px;
+    background: #A27D4F;
+    opacity: .26;
+    border-right:2px solid #FFFFFF ;
+}
+
+.Z-use {
+    width: 592px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.Z-title {
+    color: #A27D4F;
+    line-height: 40px;
+    font-size: 28px;
+    font-weight: normal;
+    background: url(../images/E-img5.png) no-repeat left bottom;
+    background-size: 100%;
+    width: 545px;
+    padding-top: 29px;
+    margin: 0 auto;
+    padding-bottom: 12px;
+    padding-left: 34px;
+    font-family: 'PingFangSC-Semibold,Microsoft Yahei';
+}
+
+.Z-useList {
+    color: #fff;
+    text-align: center;
+    width: 500px;
+    height: 320px;
+    position: relative;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0);
+}
+
+.Z-useList li {
+    background: #403125;
+    border: 1px solid #8A5E29;
+    box-shadow: inset 0 1px 16px 0 #BB9463;
+    border-radius: 50%;
+}
+
+.Z-useList li .Z-xqs {
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    width: 100%;
+    left: 50%;
+    margin-left: -50%;
+}
+
+.Z-useList li p {
+    font-family: PingFangSC-Semibold;
+    font-size: 36px;
+    line-height: 36px;
+}
+
+.Z-useList li p span {
+    margin-left: 8px;
+    line-height: 14px;
+    display: inline-block;
+}
+
+.Z-useList li span {
+    font-size: 14px;
+    line-height: 14px;
+    display: block;
+    margin-top: 6px;
+}
+
+.Z-useF {
+    width: 530px;
+    color: #fff;
+}
+
+.Z-useF li {
+    float: left;
+    width: 234px;
+    margin-right: 59px;
+    margin-bottom: 25px;
+}
+
+.Z-useF li:nth-of-type(2n+2) {
+    margin-right: 0px;
+}
+
+.Z-useF span {
+    width: 46px;
+    height: 46px;
+    background: url(../images/E-img6.png) no-repeat center;
+    background-size: 100%;
+    ont-family: PingFangSC-Semibold;
+    font-size: 24px;
+    line-height: 46px;
+    text-align: center;
+}
+
+.Z-facility {
+    width: 100%;
+    margin-top: 29px;
+    text-align: center;
+}
+
+.Z-facility #news-container1 {
+    height: auto !important;
+}
+
+.Z-facility #news-container1 .Z-on {
+    opcity: 1;
+}
+
+.Z-useF p {
+    width: 140px;
+    height: 42px;
+    opacity: 0.6;
+    background: #403125;
+    font-family: PingFangSC-Regular;
+    font-size: 18px;
+    margin-top: 2px;
+    line-height: 42px;
+    padding: 0 20px;
+}
+
+.Z-znjdList {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.Z-znjdList .Z-gpd {
+    float: left;
+    width: 216px;
+    height: 172px;
+    opacity: 0.58;
+    background: #352C24;
+    border-radius: 4px;
+    color: #fff;
+    text-align: left;
+    padding: 16px 0 0 18px !important;
+    margin-right: 40px;
+}
+.Z-znjdList .Z-gpd:last-child{
+    margin-right: 0;
+}
+.Z-znjdList .Z-on1 {
+    opacity: 1;
+    filter: alpha(opacity=10);
+}
+
+.Z-znjdList .Z-gpd h6 {
+    line-height: 16px;
+    font-size: 16px;
+    font-family: 'PingFangSC-Semibold,Microsoft Yahei';
+    border-left: 3px solid #754B17;
+    padding-left: 11px;
+}
+
+.Z-number {
+    margin-top: 27px;
+}
+
+.Z-number p {
+    float: left;
+}
+
+.Z-number p img {
+    float: left;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.Z-number p span {
+    float: left;
+    font-size: 14px;
+    color: #f1f1f1;
+    line-height: 30px;
+}
+
+.Z-marginR {
+    margin-right: 20px;
+}
+
+.Z-number2 {
+    margin-top: 18px;
+    padding-right: 22px;
+}
+
+.Z-number2 p {
+    font-size: 36px;
+    font-family: 'PingFangTC-Semibold,Microsoft Yahei';
+    color: #A86F27;
+    line-height: 61px;
+}
+
+.Z-on .Z-number2 p {
+    font-size: 46px;
+    color: #fff;
+    width: 50%;
+    text-align: center;
+}
+
+.Z-on {
+    opcity: 1;
+}
+
+.Z-number2 p i {
+    font-size: 12px;
+}
+
+.Z-znjdList .Z-gpd .Z-number2 .Z-backg {
+    width: 61px;
+    height: 61px;
+    font-size: 14px;
+    line-height: 61px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.Z-number2 .Z-backg img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.Z-ptsc3 {
+    margin-top: 45px;
+}
+
+.Z-ptsc3 .Z-titles {
+    /*background: url(../images/z-icon_home.png) no-repeat left center;*/
+}
+
+.Z-LUT1 li {
+    width: 20%;
+}
+
+/*地图*/
+.Z-EBA2 {
+    width: 935px;
+    background: url("../images/map-bg.png") no-repeat left center;
+    background-size: 100%;
+    margin-top: 93px;
+}
+
+.Z-ztfb {
+    width: 935px;
+    height: 652px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.Z-Emap {
+    width: 730px;
+    height: 506px;
+    margin: 0 auto;
+    padding-top: 140px;
+    background: url(../images/E-img7.png) no-repeat center;
+    background-size: 100%;
+
+}
+
+.Z-sum {
+    width: 300px;
+    height: 79px;
+    position: absolute;
+    left: 27px;
+    bottom: 74px;
+    background: url(../images/E-img8.png) no-repeat bottom;
+    background-size: 100% 2px;
+    font-family: 'PingFangTC-Regular,Microsoft Yahei';
+    font-size: 18px;
+    color: #C5A782;
+    line-height: 79px;
+}
+
+.Z-sum p {
+    padding: 0 18px;
+}
+
+.Z-sum img {
+    display: inline-block;
+    *dispaly: inline;
+    *zoom: 1;
+    vertical-align: middle;
+    margin-right: 20px;
+    width: 42px;
+
+}
+
+.Z-sum span {
+    font-size: 38px;
+    height: 79px;
+    line-height: 79px;
+    float: right;
+}
+
+
+/*报警信息*/
+.Z-message {
+    width: 935px;
+    margin: 0 auto;
+}
+
+.Z-me1 {
+    width: 627px;
+    position: relative;
+}
+
+.Z-me1 #news-container {
+    height: 192px !important;
+    position: absolute !important;
+    top: 104px;
+    left: 20px;
+}
+
+.Z-meT {
+    background: url(../images/E-img9.png) no-repeat center bottom;
+    font-size: 28px;
+    color: #9F7B4E;
+    font-weight: normal;
+    line-height: 38px;
+    height: 52px;
+    background-size: 100% ;
+}
+
+.Z-me1 .Z-meT {
+    padding-left: 105px;
+}
+
+.Z-mlistT1 {
+    width: 590px;
+    font-family: PingFangSC-Semibold;
+    font-size: 18px;
+    color: #A36F20;
+    margin: 0 auto;
+    margin-top: 10px;
+    line-height: 41px;
+}
+
+.Z-mlistT1 span {
+    width: 35%;
+    text-align: center;
+    float: left;
+}
+
+.Z-mlist {
+    width: 590px;
+    margin: 0 auto;
+}
+
+.Z-mlistBG {
+    width: 590px;
+    margin: 0 auto;
+}
+
+.Z-mlistBG li {
+    height: 31px;
+    padding: 8px 0px;
+    border-top: 1px solid #684D2B;
+
+}
+
+.Z-mlistBG li p {
+    height: 31px;
+    opacity: 0.3;
+    background: #775737;
+}
+
+.Z-mlist li {
+    font-family: PingFangSC-Semibold;
+    font-size: 18px;
+    color: #9a9eaa;
+    height: 39px;
+    padding: 8px 0px;
+
+}
+
+.Z-mlist li p {
+    height: 31px;
+    line-height: 31px;
+    margin: 8px 0 !important;
+}
+
+.Z-mlist li .Z-on {
+    color: #fff;
+}
+
+.Z-mlist li span {
+    width: 35%;
+    text-align: center;
+    float: left;
+}
+
+.Z-me1 span:nth-of-type(2n+2) {
+    width: 15%;
+}
+
+.Z-me2 {
+    width: 287px;
+}
+
+.Z-me2 .Z-meT {
+    padding-left: 30px;
+    margin-bottom: 29px;
+}
+
+.Z-me2 img {
+    width: 68px;
+    height: 68px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 6px;
+}
+
+.Z-personal {
+    background: url(../images/E-img11.png) no-repeat top left;
+    background-size: 100% 100%;
+    width: 192px;
+    display: inline-block;
+    padding: 10px 0 9px 0;
+    margin-left: 17px;
+}
+
+.Z-personal li {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #FFFFFF;
+    padding-bottom: 4px;
+    padding-top: 3px
+}
+
+.Z-personal li span {
+    width: 60px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 11px;
+}
+
+.Z-personal li i {
+    width: 116px;
+    display: inline-block;
+}
+
+/*设备运行警示*/
+.Z-E3List {
+    height: 476px;
+}
+
+.Z-E3List li {
+    width: 310px;
+    float: left;
+    margin-right: 36px;
+}
+.Z-E3List li:last-child{
+    margin: 0;
+}
+.Z-E3List .Z-title {
+    background: url(../images/E-img5.png) no-repeat left bottom;
+    background-size: 100%;
+    width: 276px;
+    padding-top: 72px;
+}
+
+.Z-EL1 .surePass {
+    width: 135px;
+    height: 135px;
+    border: 1px solid #A27D4F;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 40px;
+    position: relative;
+}
+
+.Z-EL1 .surePass .Z-sps {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #A27D4F;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #f6f4f3;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.Z-EL1 .surePass:nth-of-type(2) {
+    display: inline-block;
+    margin-top: 7px;
+}
+
+.Z-EL1 .surePass:nth-of-type(3) {
+    display: inline-block;
+    margin-top: 7px;
+    float: right;
+}
+
+.Z-EL1 .surePass span {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #A27D4F;
+    display: block;
+    text-align: center;
+    padding-top: 33px;
+}
+
+.Z-EL1 .surePass span i {
+    font-size: 36px;
+    display: block;
+    text-align: center;
+    line-height: 36px;
+}
+
+.Z-EL1 .surePass {
+    position: relative;
+}
+
+.Z-EL1 canvas {
+    width: 130px !important;
+    height: 130px !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -65px;
+    margin-left: -65px;
+}
+
+.Z-EL2 .Z-EL2C {
+    position: relative;
+    height: 106px;
+    width: 289px;
+    margin-left: 29px;
+    margin-top: 44px;
+}
+
+.Z-1 {
+    width: 106px;
+    height: 106px;
+    position: relative;
+    opacity: 0;
+}
+
+.Z-1 img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px
+}
+
+.Z-1F {
+    border: 1px solid #102D5C;
+    border-radius: 50%;
+    width: 82px;
+    height: 82px;
+    position: absolute;
+    left: 11px;
+    top: 11px;
+}
+
+.Z-1FC span {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #78D6FF;
+    display: block;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.Z-1FC span i {
+    font-size: 24px;
+    display: block;
+    text-align: center;
+    line-height: 36px;
+}
+
+.Z-1F2 span i {
+    font-size: 36px;
+}
+
+.Z-line {
+    width: 0px;
+    position: absolute;
+    top: 6px;
+    left: 96px;
+}
+
+.Z-1Fl {
+    border: none;
+    right: 0px;
+    top: 0px;
+}
+
+.Z-3 {
+    height: 7px;
+    background: #17335F;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 177px;
+    overflow: visible;
+    opacity: 0;
+}
+
+.Z-rotate {
+    transform: rotateY(180deg);
+}
+
+.Z-3 .Z-bar1 {
+    height: 7px;
+    background: #0154d6;
+    position: relative;
+}
+
+.Z-3 .Z-bar1:after {
+    content: "";
+    width: 2px;
+    height: 19px;
+    background: url(../images/E-img20.png) no-repeat right;
+    position: absolute;
+    right: 0px;
+    top: -6px;
+}
+
+.Z-3 .Z-barB {
+}
+
+.Z-1F2 {
+    position: absolute;
+    top: 16px;
+    right: 0px;
+    opacity: 0;
+}
+
+.Z-EL2 .Z-EL2B {
+    margin-left: 80px;
+    margin-top: 66px;
+}
+
+.Z-EL2B .Z-1 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.Z-EL2B .Z-line {
+    transform: rotateY(180deg);
+    left: 6px;
+}
+
+.Z-EL2B .Z-1 img {
+    transform: rotateY(180deg);
+}
+
+.Z-EL2B .Z-3 {
+    left: 0px;
+}
+
+.Z-EL2B .Z-1F2 {
+    right: 242px;
+}
+.Z-EBA3{
+    margin-left: 16px;
+    width: 677px;
+}
+.Z-EL3C {
+    width: 134px;
+    height: 134px;
+    background: url(../images/E-img13.png) no-repeat center;
+    background-size: 100%;
+    position: relative;
+    margin-left: 44px;
+    margin-top: 25px;
+}
+
+.Z-EL3F {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -36px;
+    margin-left: -36px;
+    text-align: center;
+    color: #A27D4F;
+
+}
+
+.Z-EL3F span {
+    font-family: PingFangSC-Semibold;
+    font-size: 12px;
+    margin-top: 15px;
+    display: block;
+}
+
+.Z-EL3F i {
+    font-size: 25px;
+}
+
+.Z-EL3F em {
+    font-family: PingFangSC-Semibold;
+    font-size: 15px;
+}
+
+.Z-EL3C1 {
+    border-left: 2px solid #A27D4F;
+    height: 0px;
+    float: left;
+    position: relative;
+    margin-left: 130px;
+}
+
+.Z-EL3C1 p {
+    font-family: PingFangSC-Semibold;
+    color: #A78357;
+    text-align: left;
+    margin-left: 23px;
+    opacity: 0;
+}
+
+.Z-EL3C1 p span {
+    display: block;
+    font-size: 36px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.Z-EL3C1 p i {
+    display: block;
+    font-size: 18px;
+}
+.Z-EL3C1 .Z-img1::before,.Z-EL3C1 .Z-img2::before{
+    position: absolute;
+    top:-1px;
+    left: -2px;
+    display: block;
+    content: "";
+    width:4px;
+    height:4px;
+    border-radius: 50%;
+    background:#A27D4F;
+
+}
+.Z-EL3C1 .Z-img1 {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: -3px;
+    width: 13px;
+    height: 2px;
+    background-color: #A27D4F;
+}
+
+.Z-EL3C1 .Z-img2 {
+    position: absolute;
+    top: 99px;
+    left: -3px;
+    width: 0;
+    width: 13px;
+    height: 2px;
+    background-color: #A27D4F;
+}
+
+.Z-E3List2 {
+    margin-top: 50px;
+    margin-left: 31px;
+}
+
+.Z-E3List2 li {
+    float: left;
+    width: 198px;
+    margin: 0 9px;
+}
+.Z-E3List2 li:last-child{
+    margin: 0;
+}
+.Z-E3List2 li p {
+    font-family: PingFangSC-Semibold;
+    font-size: 20px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.Z-E3List2 li p span {
+    font-size: 36px;
+}
+
+.Z-E3List2 .Z-top {
+    opacity: 0.6;
+    background: #CFAF87;
+    height: 36px;
+    line-height: 36px;
+}
+
+.Z-E3List2 .Z-bottom {
+    background: #A27D4F;
+    height: 60px;
+    line-height: 60px;
+    margin-top: 2px;
+}
+
+.Z-EBA3B {
+    width: 654px;
+    margin:0 auto;
+    position: relative;
+
+}
+
+.Z-EBA3B .Z-title {
+    background: url(../images/E-img5.png) no-repeat left bottom;
+    background-size: 100%;
+    width: 620px;
+    padding-top: 40px;
+}
+
+.Z-EBA3B .Z-left {
+    width: 100%;
+    z-index: 10;
+}
+
+
+.Z-EBA3B h4 {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #FFFFFF;
+    font-weight: normal;
+    margin-left: 34px;
+    margin-top: 32px;
+}
+
+.Z-EBA3B .Z-EBA3sj {
+    width: 100%;
+    height: 253px;
+    margin-top: 22px;
+}
+.table-bg{
+    position: absolute;
+    width: 612px;
+    height: 253px;
+    background: url("../images/table-bg.png") no-repeat center;
+    background-size: 100%;
+    top:142px;
+    z-index: 8;
+}
+/*动画*/
+@keyframes move_wave {
+    0% {
+        transform: scaleY(1)
+    }
+    50% {
+        transform: scaleY(0.55)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+
+.waveMiddle img {
+    animation: move_wave 5s linear infinite;
+    transform-origin: center bottom;
+}
+
+@keyframes width {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 115px;
+    }
+}
+
+.Z-month .img {
+    animation: width 1s linear 1;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin1 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.Z-number2 .Z-backg img {
+    animation: spin 7s linear infinite;
+}
+
+.Z-EL3C {
+    animation: spin 7s linear infinite;
+}
+
+.Z-ELimg {
+    animation: spin1 3.5s linear infinite;
+}
+
+.Z-EL3F {
+    animation: spin1 7s linear infinite;
+}
+
+@keyframes animate-positive {
+    0% {
+        width: 0;
+    }
+}
+
+.Z-animate {
+    animation: animate-positive 3s;
+    opacity: 1
+}
+
+.Z-animate2 {
+    animation: spin 7s linear 3s infinite;
+}
+
+@keyframes opct {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.Z-EL1 .surePass:nth-of-type(1) .Z-sps {
+    animation: opct 2s linear infinite;
+    animation-direction: alternate;
+}
+
+.Z-EL1 .surePass:nth-of-type(2) .Z-sps {
+    animation: opct 2s linear infinite 1s;
+    animation-direction: alternate;
+}
+
+.Z-EL1 .surePass:nth-of-type(3) .Z-sps {
+    animation: opct 2s linear infinite 2s;
+    animation-direction: alternate;
+}
+
+/*地图瞄点*/
+.Z-Emap {
+    position: relative;
+}
+
+.Z-Emap li {
+    position: absolute;
+    text-align: center;
+    opacity: .5;
+}
+
+.Z-Emap li p {
+    width: 39px;
+    height: 39px;
+    margin: 0 auto;
+    margin-bottom: -8px;
+    position: relative;
+}
+
+.Z-Emap li i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: -17px;
+    margin-top: -17px;
+    opacity: 1;
+    border: 2px solid #94570D;
+    box-shadow: inset 0 0 20px 0 rgba(148, 91, 22, 0.7);
+}
+
+.Z-Emap li span {
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0.05px;
+}
+
+.Z-SF1 {
+    top: 214px;
+    left: 127px;
+}
+
+.Z-SF2 {
+    top: 352px;
+    left: 142px;
+}
+
+.Z-SF3 {
+    top: 233px;
+    left: 248px;
+}
+
+.Z-SF4 {
+    top: 295px;
+    left: 227px;
+}
+
+.Z-SF5 {
+    top: 232px;
+    left: 377px;
+}
+
+.Z-SF6 {
+    top: 290px;
+    left: 354px;
+}
+
+.Z-SF7 {
+    top: 378px;
+    left: 307px;
+}
+
+.Z-SF8 {
+    top: 471px;
+    left: 288px;
+}
+
+.Z-SF9 {
+    top: 275px;
+    left: 429px;
+}
+
+.Z-SF10 {
+    top: 324px;
+    left: 386px;
+}
+
+.Z-SF11 {
+    top: 371px;
+    left: 431px;
+}
+
+.Z-SF12 {
+    top: 390px;
+    left: 381px;
+}
+
+.Z-SF13 {
+    top: 443px;
+    left: 353px;
+}
+
+.Z-SF14 {
+    top: 480px;
+    left: 391px;
+}
+
+.Z-SF15 {
+    top: 234px;
+    left: 472px;
+}
+
+.Z-SF16 {
+    top: 276px;
+    left: 461px;
+}
+
+.Z-SF17 {
+    top: 325px;
+    left: 449px;
+}
+
+.Z-SF18 {
+    top: 427px;
+    left: 432px;
+}
+
+.Z-SF19 {
+    top: 477px;
+    left: 463px;
+}
+
+.Z-SF20 {
+    top: 247px;
+    left: 487px;
+}
+
+.Z-SF21 {
+    top: 294px;
+    left: 497px;
+}
+
+.Z-SF22 {
+    top: 339px;
+    left: 529px;
+}
+
+.Z-SF23 {
+    top: 360px;
+    left: 495px;
+}
+
+.Z-SF24 {
+    top: 360px;
+    left: 551px;
+}
+
+.Z-SF25 {
+    top: 395px;
+    left: 533px;
+}
+
+.Z-SF26 {
+    top: 421px;
+    left: 475px;
+}
+
+.Z-SF27 {
+    top: 443px;
+    left: 514px;
+}
+
+.Z-SF28 {
+    top: 107px;
+    left: 561px;
+}
+
+.Z-SF29 {
+    top: 171px;
+    left: 574px;
+}
+
+.Z-SF30 {
+    top: 208px;
+    left: 541px;
+}
+
+.Z-SF31 {
+    top: 465px;
+    left: 558px;
+}
+
+.Z-SF32 {
+    top: 492px;
+    left: 489px;
+}
+
+.Z-SF33 {
+    top: 511px;
+    left: 446px;
+}
+
+.Z-SF34 {
+    top: 548px;
+    left: 410px;
+}
+
+@-webkit-keyframes warn2 {
+    0% {
+        transform: scale(0.8);
+
+    }
+    50% {
+        transform: scale(1);
+
+    }
+
+    100% {
+        transform: scale(0.8);
+
+    }
+}
+
+@keyframes c2 {
+    0% {
+
+        transform: scale(.222);
+        opacity: 1
+    }
+    50% {
+
+        transform: scale(.622);
+        opacity: .6
+    }
+    80% {
+
+        transform: scale(1);
+        opacity: .4
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+/* 保持大小不变的小圆圈  */
+.Z-Emap li .Z-dot1 {
+    width: 8px;
+    height: 8px;
+    margin-left: -6px;
+    margin-top: -6px;
+    opacity: 1;
+    background: #DEC19C;
+    border-radius: 50%;
+    animation: warn2 2s linear infinite;
+}
+
+/* 产生动画（向外扩散变大）的圆圈  */
+.Z-Emap li .Z-dot2 {
+    animation: c2 2s linear infinite;
+}
+
+.Z-Emap li .Z-dot3 {
+    animation: c2 2s linear infinite 1s;
+    opacity: 0;
+}
+
+.Z-Emap .Z-SFon i {
+    width: 52px;
+    height: 52px;
+    margin-left: -28px;
+    margin-top: -28px;
+    border: 2px solid #fff;
+    box-shadow: inset 0 0 20px 0 rgba(255, 255, 255, 0.50);
+}
+
+.Z-Emap .Z-SFon .Z-dot1 {
+    width: 16px;
+    height: 16px;
+    margin-left: -10px;
+    margin-top: -10px;
+    background: #fff;
+}
+
+#gundong {
+    overflow: hidden;
+    width: 130px;
+}
+
+#gundongAreaMain1 {
+    float: left;
+    width: 800%;
+}
+
+#gundongAreaMain2, #gundongAreaMain3 {
+    float: left;
+}
+
+/*管理面积波纹动画*/
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+
+.waveAnimation {
+    width: 185px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.waveBottom {
+    background-size: 50% 20px;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+
+.waveAnimation .waveBottom {
+    animation: move_wave 5s linear infinite;
+}
+
+/*检测设施数动画*/
+.music {
+    width: 185px;
+    height: 30px;
+    position: relative;
+}
+
+.music i {
+    width: 7px;
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+}
+
+.music i:nth-of-type(1) {
+    left: 1px;
+}
+
+.music i:nth-of-type(2) {
+    left: 14px;
+}
+
+.music i:nth-of-type(3) {
+    left: 27px;
+}
+
+.music i:nth-of-type(4) {
+    left: 39px;
+}
+
+.music i:nth-of-type(5) {
+    left: 52px;
+}
+
+.music i:nth-of-type(6) {
+    left: 65px;
+}
+
+.music i:nth-of-type(7) {
+    left: 78px;
+}
+
+.music i:nth-of-type(8) {
+    left: 90px;
+}
+
+.music i:nth-of-type(9) {
+    left: 103px;
+}
+
+.music i:nth-of-type(10) {
+    left: 116px;
+}
+
+.music i:nth-of-type(11) {
+    left: 129px;
+}
+
+.music i:nth-of-type(12) {
+    left: 141px;
+}
+
+.music i:nth-of-type(13) {
+    left: 154px;
+}
+
+.music i:nth-of-type(14) {
+    left: 167px;
+}
+
+.music i:nth-of-type(15) {
+    left: 180px;
+}
+
+.music i:nth-of-type(1) {
+    animation: wave 1.32s linear infinite;
+}
+
+.music i:nth-of-type(2) {
+    animation: wave 1.6s linear infinite;
+}
+
+.music i:nth-of-type(3) {
+    animation: wave 1.4s linear infinite;
+}
+
+.music i:nth-of-type(4) {
+    animation: wave 1s linear infinite;
+}
+
+.music i:nth-of-type(5) {
+    animation: wave 1.8s linear infinite;
+}
+
+.music i:nth-of-type(6) {
+    animation: wave 2.4s linear infinite;
+}
+
+.music i:nth-of-type(7) {
+    animation: wave 1.32s linear infinite;
+}
+
+.music i:nth-of-type(8) {
+    animation: wave 1.6s linear infinite;
+}
+
+.music i:nth-of-type(9) {
+    animation: wave 1.4s linear infinite;
+}
+
+.music i:nth-of-type(10) {
+    animation: wave 1s linear infinite;
+}
+
+.music i:nth-of-type(11) {
+    animation: wave 1.8s linear infinite;
+}
+
+.music i:nth-of-type(12) {
+    animation: wave 2.4s linear infinite;
+}
+
+.music i:nth-of-type(13) {
+    animation: wave 1.32s linear infinite;
+}
+
+.music i:nth-of-type(14) {
+    animation: wave 1.6s linear infinite;
+}
+
+.music i:nth-of-type(15) {
+    animation: wave 1.4s linear infinite;
+}
+
+@keyframes wave {
+    0% {
+        height: 8px
+    }
+    50% {
+        height: 28px
+    }
+    100% {
+        height: 12px
+    }
+}

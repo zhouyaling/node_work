@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>业主服务平台</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/startAnimate.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+</head>
+
+<body class="app-container">
+    <div id="app">
+        <!-- 页面顶部标题 -->
+        <div class="M-title"></div>
+        <!--左侧区域-->
+        <div class="M-left fl">
+            <!--线上满意度-->
+            <div class="M-baos fl cl">
+                <h2 class="M-Bar">
+                    <span class="M-BarTxt">线上满意度</span>
+                </h2>
+                <div class="M-satisfied">
+                    <div class="satisfied-card satisfied-card1">
+                        <div class="card-left">
+                            <img class="card-img" src="./images/circle2.png">
+                            <div class="card-number" id="satisfied-number1">01</div>
+                        </div>
+                        <div class="card-right" id="satisfied-name1"></div>
+                    </div>
+                    <div class="satisfied-card satisfied-card2">
+                        <div class="card-left">
+                            <img class="card-img" src="./images/circle2.png">
+                            <div class="card-number" id="satisfied-number1">02</div>
+                        </div>
+                        <div class="card-right" id="satisfied-name2"></div>
+                    </div>
+                    <div class="satisfied-card satisfied-card3">
+                        <div class="card-left">
+                            <img class="card-img" src="./images/circle2.png">
+                            <div class="card-number" id="satisfied-number1">03</div>
+                        </div>
+                        <div class="card-right" id="satisfied-name3"></div>
+                    </div>
+                    <div class="satisfied-card satisfied-card4">
+                        <div class="card-left">
+                            <img class="card-img" src="./images/circle2.png">
+                            <div class="card-number" id="satisfied-number1">04</div>
+                        </div>
+                        <div class="card-right" id="satisfied-name4"></div>
+                    </div>
+                    <div class="satisfied-card satisfied-card5">
+                        <div class="card-left">
+                            <img class="card-img" src="./images/circle2.png">
+                            <div class="card-number" id="satisfied-number1">05</div>
+                        </div>
+                        <div class="card-right" id="satisfied-name5"></div>
+                    </div>
+                </div>
+            </div>
+            <!--活动排名 -->
+            <div class="M-ranking fl">
+                <h2 class="M-Bar"><span class="M-BarTxt">活动排名（TOP5）</span></h2>
+                <table class="M-table" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td></td>
+                        <td style="font-size:14px;">浏览量（PV）</td>
+                        <td style="font-size:14px;">用户数（UV）</td>
+                        <td style="font-size:14px;width: 100px;">点击率</td>
+                        <td style="font-size:14px;">历史趋势</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:14px;" id="name1"></td>
+                        <td style="color:#C4B39D;" id="pv1" class='counter'></td>
+                        <td id='uv1' class='counter'></td>
+                        <td style="color:#C4B39D;"><i id="jump1" class='counter'></i>%</td>
+                        <td><img class="cimg" src="./images/linex2.png" width="66" height="12" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:14px;" id="name2"></td>
+                        <td style="color:#C4B39D;" id="pv2" class='counter'></td>
+                        <td id='uv2' class='counter'></td>
+                        <td style="color:#C4B39D;"><i id="jump2" class='counter'></i>%</td>
+                        <td><img class="cimg" src="./images/linex2.png" width="66" height="12" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:14px;" id="name3"></td>
+                        <td style="color:#C4B39D;" id="pv3" class='counter'></td>
+                        <td id='uv3' class='counter'></td>
+                        <td style="color:#C4B39D;"><i id="jump3" class='counter'></i>%</td>
+                        <td><img class="cimg" src="./images/linex2.png" width="66" height="12" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:14px;" id="name4"></td>
+                        <td style="color:#C4B39D;" id="pv4" class='counter'></td>
+                        <td id='uv4' class='counter'></td>
+                        <td style="color:#C4B39D;"><i id="jump4" class='counter'></i>%</td>
+                        <td><img class="cimg" src="./images/linex2.png" width="66" height="12" alt="" /></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:14px;" id="name5"></td>
+                        <td style="color:#C4B39D;" id="pv5" class='counter'></td>
+                        <td id='uv5' class='counter'></td>
+                        <td style="color:#C4B39D;"><i id="jump5" class='counter'></i>%</td>
+                        <td><img class="cimg" src="./images/linex2.png" width="66" height="12" alt="" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- 中间区域 -->
+        <div class="M-center">
+            <!-- 地图底部颜色 -->
+            <div class="M-backdrop"></div>
+            <div class="M-container">
+                <ul class="Z-map" id='map'>
+
+                </ul>
+
+                <div class="Z-sum">
+                    <p><img src="./images/total_icon.png" alt="" />总数<span id="total"></span></p>
+                    <p><img style="margin-right:22px!important;" src="./images//provice_icon.png" alt="" />省份数<span id="province"></span></p>
+                    <p><img src="./images//city_icon.png" alt="" />城市数<span id="city"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧区域 -->
+        <div class="M-right">
+            <!-- 报事信息 -->
+            <div>
+                <h2 class="M-Bar2"><span class="M-BarTxt">报事</span> </h2>
+                <div class="cl">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="M-stati cl">
+                                    <div class="M-Dlist M-Dhover fl">
+                                        <p>报事量</p>
+                                        <p style="font-size:34px;font-family: PingFangSC-Semibold;" id="baoshiNum"></p>
+                                        <p style="border-bottom:solid 1px #FFFFFF;margin:2px 0 0 15px;padding:5px 0;width:235px;">
+                                            <span id="weekPercent"></span>
+                                            <span style="padding-left:40px;" id="dayPercent"></span>
+                                        </p>
+                                        <p style="padding-top:6px;" id="dayBaoshiAvg"></p>
+                                    </div>
+
+                                    <div class="M-Dlist fl">
+                                        <p>处理量</p>
+                                        <p style="font-size:34px;font-family: PingFangSC-Semibold;" id="dealNum"></p>
+
+                                        <div class="music">
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                            <i></i>
+                                        </div>
+                                        <p style="border-bottom:solid 1px #FFFFFF;margin:0 0 0 15px;padding:5px 0;width:235px;"></p>
+                                        <p style="padding-top:6px;" id='dayDealAvg'></p>
+                                    </div>
+
+                                    <div class="M-Dlist fl">
+                                        <p>完成量</p>
+                                        <p style="padding-bottom:12px; font-size:34px;font-family: PingFangSC-Semibold;" id="finishNum"></p>
+                                        <div class="waveAnimation">
+                                            <div class="waveBottom" style="background-image:url(images/d-2.png)"></div>
+                                        </div>
+                                        <p style="border-bottom:solid 1px #FFFFFF;margin:0 0 0 15px;padding:3px 0;width:235px;"></p>
+                                        <p style="padding-top:6px;" id="processPercent"></p>
+                                    </div>
+
+                                    <div class="M-Dlist fl">
+                                        <p>完结率</p>
+                                        <p style="font-size:34px;font-family: PingFangSC-Semibold;" id='finishPercent'></p>
+                                        <p style="border-bottom:solid 1px #FFFFFF;margin:0 0 0 15px;padding:3px 0;width:235px;">
+                                            <span class="M-dk"><em style="width:60%;"></em></span>
+                                        </p>
+                                        <p style="margin:1px 0 0 15px;padding:5px 0;width:235px;">
+                                            <span id='weekFinish'></span>
+                                            <span style="padding-left:20px;" id='dayFinish'></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 当月数据 设备运行警示 -->
+            <div class="Z-EBA3T">
+                <!--上部分-->
+                <ul class="Z-E3List clearFix">
+                    <li class="Z-EL3">
+                        <h2 class="M-Bar3"><span class="M-BarTxt">当月数据</span></h2>
+                        <div class="Z-EL3C">
+
+                            <div class="Z-EL3F">
+                                <span><i id="monthPercent"></i>%</span>
+                                <em>完好率</em>
+                            </div>
+                        </div>
+                        <div class="Z-EL3C1">
+                            <p style="margin-top:-26px;"><span id="monthDevice"></span><i>设备设施数</i></p>
+                            <p style="margin-top:30px;"><span id="monthPerfect"></span><i>完好数</i></p>
+                            <i class="Z-img1"></i>
+                            <i class="Z-img2"></i>
+                        </div>
+                    </li>
+                    <li class="Z-EL1">
+                        <h2 class="M-Bar3"><span class="M-BarTxt">设备运行警示</span> </h2>
+                        <div class="hexagon-group">
+                            <div class="hexagon">
+                                <div class="hexagon-txt">
+                                    <span class="counter" id="leakageNum"></span>
+                                    <em>消防漏水</em>
+                                </div>
+                            </div>
+                            <div class="hexagon">
+                                <div class="hexagon-txt">
+                                    <span class="counter" id="tiringNum"></span>
+                                    <em>电梯困人</em>
+                                </div>
+                            </div>
+                            <div class="hexagon">
+                                <div class="hexagon-txt">
+                                    <span class="counter" id="inletNum"></span>
+                                    <em>房间漏水</em>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+                </ul>
+                <!--下部分-->
+                <ul class="Z-E3List2 clearFix">
+                    <li>
+                        <p class="Z-top">紧急告警台数</p>
+                        <p class="Z-bottom"><span class="counter" id="taiNum"></span>台</p>
+                    </li>
+                    <li>
+                        <p class="Z-top">紧急告警次数</p>
+                        <p class="Z-bottom"><span class="counter" id="frequency"></span>次</p>
+                    </li>
+                    <li>
+                        <p class="Z-top">告警平均处理时长</p>
+                        <p class="Z-bottom"><span class="counter" id="avgTime"></span>小时</p>
+                    </li>
+
+
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="loading">
+        <div id="robot">
+            <div class="piston">
+                <div class="rotator"></div>
+                <div class="block">
+                    T
+                    <div class="arm"></div>
+                </div>
+            </div>
+            <div class="piston">
+                <div class="rotator"></div>
+                <div class="block">
+                    Q
+                    <div class="arm"></div>
+                </div>
+            </div>
+            <div class="piston">
+                <div class="rotator"></div>
+                <div class="block">
+                    大
+                    <div class="arm"></div>
+                </div>
+            </div>
+            <div class="piston">
+                <div class="rotator"></div>
+                <div class="block">
+                    数
+                    <div class="arm"></div>
+                </div>
+            </div>
+            <div class="piston">
+                <div class="rotator"></div>
+                <div class="block">
+                    据
+                    <div class="arm"></div>
+                </div>
+            </div>
+        </div>
+        <p>0%</p>
+    </div>
+</body>
+
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.timers-1.2.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="js/jquery.countup.min.js"></script>
+<script type="text/javascript" src="js/echarts3.8.4.js"></script>
+<script type="text/javascript" src="js/progress.js"></script>
+<!-- 页面初始加载动画 -->
+<script type="text/javascript" src="js/startAnimate.js"></script>
+<!--静态数据文件-->
+<script type="text/javascript" src="data/staticData.js"></script>
+<!-- 页面数据js -->
+<script type="text/javascript" src="js/public.js"></script>
+
+</html>

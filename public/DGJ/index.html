@@ -1,0 +1,422 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>大管家</title>
+    <link rel="stylesheet" type="text/css" href="css/community.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.tabs.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/jquery.timers-1.2.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="js/jquery.countup.min.js"></script>
+
+    <script type="text/javascript" src="js/echarts3.8.4.js"></script>
+    <script type="text/javascript" src="js/progress.js"></script>
+    <!--数据文件-->
+    <script type="text/javascript" src="data/baseData-d.js"></script>
+
+    <script type="text/javascript" src="js/mapChar-d.js"></script>
+    <script type="text/javascript" src="js/public-d.js"></script>
+    <script type="text/javascript" src="js/barChart-d.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
+
+
+</head>
+
+<body class="cl" >
+<div class="M-title">大管家平台</div>
+<!--第一部分-->
+<div class="M-left fl">
+    <!--报事-->
+    <div class="M-baos fl cl">
+        <h2 class="M-T01">报事</h2>
+        <div class="M-T02" style="margin-left:11px;"><img src="images/z-icon_count.png" width="26" height="26" alt=""/>数据总计
+        </div>
+        <!--数据统计 -->
+        <div class="cl" style="height:400px;">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="M-stati cl">
+                            <div class="M-Dlist M-Dhover fl">
+                                <p>报事量</p>
+                                <p style="font-size:30px;font-family: PingFangSC-Semibold;" id="baoshiNum"></p>
+                                <p style="border-bottom:solid 1px #FFFFFF;margin:5px 0 0 15px;padding:5px 0;width:190px;">
+                                    <span id="weekPercent"></span>
+                                    <span style="padding-left:20px;" id="dayPercent"></span>
+                                </p>
+                                <p style="padding-top:10px;" id="dayBaoshiAvg"></p>
+                            </div>
+
+                            <div class="M-Dlist fl">
+                                <p>处理量</p>
+                                <p style="font-size:30px;font-family: PingFangSC-Semibold;" id="dealNum"></p>
+                                <div class="waveAnimation">
+                                    <div class="waveBottom" style="background-image:url(images/d-2.png)"></div>
+                                </div>
+                                <p style="border-bottom:solid 1px #FFFFFF;margin:0 0 0 15px;padding:5px 0;width:190px;"></p>
+                                <p style="padding-top:10px;" id='dayDealAvg'></p>
+                            </div>
+
+                            <div class="M-Dlist fl">
+                                <p>完成量</p>
+                                <p style="font-size:30px;font-family: PingFangSC-Semibold;" id="finishNum"></p>
+                                <div class="music">
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                </div>
+                                <p style="border-bottom:solid 1px #FFFFFF;margin:0 0 0 15px;padding:3px 0;width:190px;"></p>
+                                <p style="padding-top:10px;" id="processPercent"></p>
+                            </div>
+
+                            <div class="M-Dlist fl">
+                                <p>完结率</p>
+                                <p style="font-size:30px;font-family: PingFangSC-Semibold;" id='finishPercent'></p>
+                                <p style="border-bottom:solid 1px #FFFFFF;margin:0 0 0 15px;padding:3px 0;width:190px;">
+                                    <span class="M-dk"><em style="width:60%;"></em></span>
+                                </p>
+                                <p style="margin:5px 0 0 15px;padding:5px 0;width:190px;">
+                                    <span id='weekFinish'></span>
+                                    <span style="padding-left:20px;" id='dayFinish'></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--线上满意度 -->
+    <div class="M-satis fl">
+        <div class="M-T02" style="margin:50px 0 50px 11px;"><img src="images/d-my.png" width="24" height="24" alt=""/>线上满意度
+        </div>
+        <div class="M-Tg">
+            <div class="M-Tgcir1">
+                <div class="c1">
+                    <p style="padding-top:15px;"><i class="counter" id="pleasedPercent"></i>%</p>
+                    <p style="opacity:0.8">满意度</p>
+                </div>
+                <div class="c2">
+                </div>
+                <div class="c3"></div>
+            </div>
+            <div class="M-tag1" style="opacity: 1;" id="gjcName">
+                <!--<span id="tg1">处理及时</span>
+                <span id="tg2">细心严谨</span>
+                <span id="tg3">非常有礼貌</span>
+                <span id="tg4">处理效率高</span>
+                <span id="tg5">完美</span>
+                <span id="tg6">处理师傅颜值担当</span>
+                <span id="tg7">物业通知公告及时</span>
+                <span id="tg8">安排合理</span>
+                <span id="tg9">颜值超帅</span>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--第二部分-->
+<div class="M-Dright fl cl">
+    <div class="M-grid cl">
+        <div class="fl cl" style="width:1292px;">
+            <div class="M-manag fl cl">
+                <!--地图-->
+                <div class="M-mawp cl fl">
+                    <div class="demo4 cl">
+                        <ul class="tab_menu cl">
+                            <li class="current">巡更</li>
+                            <li>设备巡检</li>
+                            <li>设备维保</li>
+                        </ul>
+                    </div>
+                    <div class="M-tabcont cl">
+                        <!--地图数据-->
+                        <ul class="M-dmap" id="map">
+                        </ul>
+
+
+                        <div class="M-xgp fl">
+                            <h2><p style="font-size:32px;color:#fff;" id="allPercent"></p>
+                                <p>巡更报事率</p>
+                            </h2>
+                            <div class="M-xgc fl">
+                                <div class="M-xgctxt"><p style="color:#d8d6d6;    text-align: right;
+">总巡更点位</p>
+                                    <h2 class="counter" id="allCount" style="text-align: left"></h2>
+                                </div>
+                            </div>
+                            <h2 style="margin-top:-35px;"><p style="font-size:32px;color:#fff;" id="allNumber"></p>
+                                <p>日均巡查次数</p>
+                            </h2>
+                        </div>
+
+                        <div class="M-Distri fr">
+                            <h2 class="M-h2"><img src="images/d-rl.png" width="23" height="21" alt=""/>人力分布</h2>
+                            <ul class="M-Dislist cl">
+                                <li>
+                                    <canvas id="my_html" width="80" height="80"></canvas>
+                                    <div id="securityManage"></div>
+                                    <p>安全</p>
+                                </li>
+                                <li>
+                                    <canvas id="my_html1" width="80" height="80"></canvas>
+                                    <div id="engineeringManage"></div>
+                                    <p>工程</p>
+                                </li>
+                                <li>
+                                    <canvas id="my_html2" width="80" height="80"></canvas>
+                                    <div id="environmentalManage"></div>
+                                    <p>环境</p>
+                                </li>
+                                <li>
+                                    <canvas id="my_html3" width="80" height="80"></canvas>
+                                    <div id="serviceManage"></div>
+                                    <p>客服</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--/01-->
+                </div>
+                <!--人力分布-->
+                <div class="M-piont fr cl">
+                    <h2 class="M-h2"><img src="images/d-ssk.png" width="20" height="20" alt=""/>知识库</h2>
+                    <!-- 知识库-->
+                    <table cellpadding="0" cellspacing="0" class="M-ptable">
+                        <tr>
+                            <td style="font-size:30px;color:#fff;" class="counter" id="totals"></td>
+                            <td class="counter" style="font-size:30px;color:#fff;" id="dailyNum"></td>
+                        </tr>
+                        <tr>
+                            <td>总量</td>
+                            <td>日均更新</td>
+                        </tr>
+                    </table>
+                    <h2 class="M-h2"><img src="images/d-jf.png" width="20" height="21" alt=""/>接房</h2>
+                    <!--接房-->
+                    <table cellpadding="0" cellspacing="0" class="M-ptable1">
+                        <tr id="acceptHourse">
+                            <!--<td><div class="M-pbar"><span style="width:87.6%;"><em>87.6%</em></span></div></td>-->
+
+                        </tr>
+                        <tr>
+                            <td>接房率</td>
+                            <td>整改率</td>
+                            <td>缴费率</td>
+                        </tr>
+                    </table>
+                    <h2 class="M-h2"><img src="images/d-yf.png" width="20" height="18" alt=""/>验房</h2>
+                    <!--验房-->
+                    <table cellpadding="0" cellspacing="0" class="M-ptable1">
+                        <tr id="checkHourse">
+                        </tr>
+                        <tr>
+                            <td style="width:160px;">整改率</td>
+                            <td style="width:160px;">合格率</td>
+                            <td style="width:160px;">满意率</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <h2 class="M-h2"><img src="images/d-syqk.png" width="17" height="20" alt=""/>使用情况</h2>
+                    <!--热点功能-->
+                    <div class="M-useqk cl">
+                        <h3>热点功能</h3>
+                        <div class="M-ustxt fl">
+                            <p id="hotTop1Name"></p>
+                            <p style="border:1px solid #807050;margin:8px 0 8px 20px;"></p>
+                            <p style="padding-top:10px;"><span class="counter" id="hotTop1Num"></span><em>次／天</em></p>
+                        </div>
+
+                        <div class="M-ustxt fr" style="margin-right:50px;">
+                            <p id="hotTop2Name"></p>
+                            <p style="border:1px solid #807050;margin:8px 0 8px 20px;"></p>
+                            <p style="padding-top:10px;"><span class="counter" id="hotTop2Num"></span><em>次／天</em></p>
+                        </div>
+                    </div>
+                    <!--项目活跃度-->
+                    <div class="M-useqk cl">
+                        <h3>项目活跃度</h3>
+                        <div class="M-ustxt fl">
+                            <p id="projectTop1Name"></p>
+                            <p style="border:1px solid #807050;margin:8px 0 8px 20px;"></p>
+                            <p style="padding-top:10px;"><span class="counter" id="projectTop1Num"></span><em>次／天</em>
+                            </p>
+                        </div>
+
+                        <div class="M-ustxt fr" style="margin-right:50px;">
+                            <p id="projectTop2Name"></p>
+                            <p style="border:1px solid #807050;margin:8px 0 8px 20px;"></p>
+                            <p style="padding-top:10px;"><span class="counter" id="projectTop2Num"></span><em>次／天</em>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!--建档 -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--故障-->
+    <div class="M-safety">
+        <h2 class="M-T01">安全管理</h2>
+        <h3>设备故障排名</h3>
+        <div id="equipmentTrouble">
+            <!--<dl class="M-dlrate cl">
+            <dt>30<sup>%</sup></dt>
+            <dd>
+            <div><span style="width:30%;"></span></div>
+            <p>路灯</p>
+            </dd>
+            </dl>
+
+            <dl class="M-dlrate cl">
+            <dt>28<sup>%</sup></dt>
+            <dd>
+            <div><span style="width:28%;"></span></div>
+            <p>摄像头</p>
+            </dd>
+            </dl>
+
+            <dl class="M-dlrate cl">
+            <dt>26<sup>%</sup></dt>
+            <dd>
+            <div><span style="width:26%;"></span></div>
+            <p>摄像头</p>
+            </dd>
+            </dl>-->
+
+        </div>
+
+        <h3>项目故障排名</h3>
+        <div id="projectFailure">
+            <!--<dl class="M-dlrate cl">
+            <dt>30<sup>%</sup></dt>
+            <dd>
+            <div><span style="width:30%;"></span></div>
+            <p>金科十年城</p>
+            </dd>
+            </dl>
+
+            <dl class="M-dlrate cl">
+            <dt>28<sup>%</sup></dt>
+            <dd>
+            <div><span style="width:28%;"></span></div>
+            <p>金科小镇</p>
+            </dd>
+            </dl>
+
+            <dl class="M-dlrate cl">
+            <dt>26<sup>%</sup></dt>
+            <dd>
+            <div><span style="width:26%;"></span></div>
+            <p>金科美湖</p>
+            </dd>
+            </dl>-->
+        </div>
+        <h3>报警监控</h3>
+        <ul class="M-alarm fl cl">
+            <li style="background-color:rgba(207,175,135,0.75)">正常</li>
+            <li style="background-color:rgba(207,175,135,0.22)">异常</li>
+            <li style="background:rgba(255,255,255,0.10);border: 1px solid rgba(255,255,255,0.17);" class="counter"
+                id="nomalNumAlarm"></li>
+            <li style="background:rgba(255,255,255,0.10);border: 1px solid rgba(255,255,255,0.17);" class="counter"
+                id="unusualNumAlarm"></li>
+        </ul>
+        <div style="height:114px;width:142px;margin-left:8px;margin-top:50px; text-align:center; background:#CFAF87;float:left;">
+            <p style="font-size:30px; line-height:36px;padding-top:25px;"><i class="counter" id="alarmPercent"></i>%</p>
+            <p style="font-size:14px;">报警及时处理率</p>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(function () {
+        $('.demo4').Tabs({
+            auto: 5000
+        });
+    });
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*多彩tag*/
+        var tags_span = $(".M-tag").find("span");
+        tags_span.each(function () {
+            var x = 16;
+            var y = 0;
+            var rand = parseInt(Math.random() * (x - y + 1) + y);
+            $(this).addClass("size" + rand);
+        });
+
+    });
+</script>
+
+
+<script>
+    var xx = 0;//智能家电厂商 亮度动画
+    $('body').everyTime('5s', function () {
+        if (xx == 4) {
+            xx = 0;
+            $(".swiper-slide-active").find(".M-Dlist").removeClass('M-Dhover');
+            $(".swiper-slide-active").find(".M-Dlist").eq(0).addClass('M-Dhover');
+            xx++;
+        } else {
+            $(".swiper-slide-active").find(".M-Dlist").removeClass('M-Dhover');
+
+            $(".swiper-slide-active").find(".M-Dlist").eq(xx).addClass('M-Dhover');
+            xx++;
+        }
+        //console.log("xx"+xx);
+    })
+
+</script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 5000,
+        autoplayDisableOnInteraction: false
+    });
+</script>
+
+<script type="text/javascript">
+    function autoScroll(obj) {
+        $(obj).find("ul").animate({
+            marginTop: "-39px"
+        }, 500, function () {
+            $(this).css({marginTop: "0px"}).find("li:first").appendTo(this);
+        })
+    }
+
+    $(function () {
+        setInterval('autoScroll(".maquee")', 5000);
+
+    })
+
+</script>
+
+</body>
+</html>

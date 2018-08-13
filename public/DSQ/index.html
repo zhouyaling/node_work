@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>大社区平台</title>
+    <link rel="stylesheet" type="text/css" href="css/community.css" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.timers-1.2.js"></script>
+    <script type="text/javascript" src="js/animation.js"></script>
+    <script type="text/javascript" src="js/jquery.countup.min.js"></script>
+    <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="js/circleChart.min.js"></script>
+    <script type="text/javascript" src="js/echarts3.8.4.js"></script>
+
+    <!--
+        作者：1179122163@qq.com
+        时间：2018-01-15
+        描述：数据文件
+    -->
+    <!--
+        作者：1179122163@qq.com
+        时间：2018-01-15
+        描述：ecahrts文件
+    -->
+    <script type="text/javascript" src="js/lineChart.js"></script>
+    <script type="text/javascript" src="js/public.js"></script>
+</head>
+
+<body class="M-combg cl">
+    <div class="head-title">
+        <img src="images/head.png">
+        <div>
+            大社区平台
+        </div>
+
+    </div>
+    <!--第二部分-->
+    <div class="M-right fl cl">
+        <!--地图-->
+        <div class="M-mapwp fl">
+            <!--顶部基础数据-->
+            <div class="M-today cl">
+                <!--今日浏览量-->
+                <div class="M-pv fl">
+                    <h1>今日浏览量(PV)</h1>
+                    <div class="M-pvdate1" style="font-size:36px;color:#C48730;letter-spacing: 0;padding:0 0 0 30px;" id="todayPV"></div>
+                    <div class="M-tdata">
+                        <span>较昨日同时段<br><em style="color:white;font-weight:600;" id="dayPV"></em></span>
+                        <span>较上周同时段<br><em style="color:white;" id="weekPV"></em></span>
+                    </div>
+                    <!--<div class="wave" style="background:url(images/c-bf.png)"></div>-->
+                </div>
+                <!--今日点击用户-->
+                <div class="M-pv fl">
+                    <h1>今日点击用户(UV)</h1>
+                    <div class="M-pvdate1" style="font-size: 36px;color: #C48730;letter-spacing: 0;padding:0 0 0 30px;" id="todayUV"></div>
+                    <div class="M-tdata">
+                        <span>较昨日同时段<br><em style="color:white;font-weight:600;" id="dayUV"></em></span>
+                        <span>较上周同时段<br><em style="color:white;" id="weekUV"><img style="vertical-align:middle;padding:0 5px;"
+                                                                                src="images/down.png" width="7"
+                                                                                height="14"/></em></span>
+                    </div>
+                    <!--<div class="wave" style="background:url(images/c-bf.png)"></div>-->
+                </div>
+                <!--今日启动次数-->
+                <div class="M-pv fl">
+                    <h1>今日启动次数</h1>
+                    <div class="M-pvdate1" style="font-size: 36px;color: #C48730;letter-spacing: 0;padding:0 0 0 30px;" id="openNum"></div>
+                    <div class="M-tdata">
+                        <span>较昨日同时段<br><em style="color:white ;font-weight:600;" id="dayOpen"></em></span>
+                        <span>较上周同时段<br><em style="color:white ;" id="weekOpen"></em></span>
+                    </div>
+                    <!--<div class="wave" style="background:url(images/c-bf.png)"></div>-->
+                </div>
+            </div>
+
+
+            <div class="M-map">
+                <ul class="Z-map" id="map">
+                    <script>
+                        $(function() {
+                            var mapNum = 0;
+                            //                        每隔5s加载一次地图
+                            $('body').everyTime('5s', function() {
+                                mapNum++;
+                                if (mapNum == alength) {
+                                    mapNum = 0;
+                                }
+                                $('.Z-map li').removeClass('Z-SFon');
+                                $('.Z-map li').eq(mapNum).addClass('Z-SFon');
+                                $('.Z-map li .Z-p2').html("<img src='images/c-Mark1.png'  alt=''/>");
+                                $('.Z-map .Z-SFon .Z-p2').html("<i class='Z-dot1'></i><i class='Z-dot2'></i><i class='Z-dot3'></i>");
+                            })
+                        });
+                    </script>
+                </ul>
+
+            </div>
+
+            <ul class="M-total">
+                <li><img style="padding:0 15px; vertical-align:middle;margin-top:-20px;" src="images/c-i01.png" width="32" height="32" alt="" /><em>总数</em><i id="total"></i></li>
+                <li><img style="padding:0 15px; vertical-align:middle;margin-top:-20px;" src="images/c-i02.png" width="32" height="32" alt="" /><em>省份数</em><i id="province"></i></li>
+                <li><img style="padding:0 15px; vertical-align:middle;margin-top:-20px;" src="images/c-i03.png" width="32" height="32" alt="" /><em>城市数</em><i id="city"></i></li>
+            </ul>
+            <div class="M-south"><img src="images/c-nanhai.png" width="112" height="164" alt="" /></div>
+        </div>
+        <!--地图 end-->
+        <div class="M-Rright fr" style=" margin-right: 30px;padding-top: 67px;">
+            <!--顶部-->
+            <div class="M-users cl">
+                <dl>
+                    <dt><img src="images/iphone.png" width="70" height="82" alt=""/></dt>
+                    <dd>
+                        <h2>ios用户量</h2>
+                        <p class="M-pvdate1" id="iosUserNum"></p>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt><img src="images/android.png" width="81" height="86" alt=""/></dt>
+                    <dd>
+                        <h2>Android用户量</h2>
+                        <p class="M-pvdate1" id="androidUserNum"></p>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt><img src="images/gan.png" width="90" height="80" alt=""/></dt>
+                    <dd>
+                        <h2>未知用户量</h2>
+                        <p class="M-pvdate1" id="unknowUserNum"></p>
+                    </dd>
+                </dl>
+            </div>
+            <!--/用户量 end-->
+
+            <!--用户存留率折线图-->
+            <div class="M-retained fl">
+                <h1 class="M-h1">用户留存率</h1>
+                <div style="width:745px;height:244px;" id='quxian2'>
+                    <script type="text/javascript" src="js/lineChart2.js"></script>
+                </div>
+                <!--/用户留存率 end-->
+                <!--活动排名 -->
+                <div class="M-retained fl">
+                    <h1 class="M-h1">活动排名（TOP5）</h1>
+                    <table class="M-table" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td></td>
+                            <td style="font-size:14px;">浏览量（PV）</td>
+                            <td style="font-size:14px;">用户数（UV）</td>
+                            <td style="font-size:14px;width: 100px;">点击率</td>
+                            <td style="font-size:14px;">历史趋势</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px;" id="name1"></td>
+                            <td style="color:#d49622;" id="pv1" class='counter'></td>
+                            <td id='uv1' class='counter'></td>
+                            <td style="color:#BB9463;"><i id="jump1" class='counter'></i>%</td>
+                            <td><img class="cimg" src="images/c-bolang.png" width="88" height="14" alt="" /></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px;" id="name2"></td>
+                            <td style="color:#d49622;" id="pv2" class='counter'></td>
+                            <td id='uv2' class='counter'></td>
+                            <td style="color:#BB9463;"><i id="jump2" class='counter'></i>%</td>
+                            <td><img class="cimg" src="images/c-bolang.png" width="88" height="14" alt="" /></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px;" id="name3"></td>
+                            <td style="color:#d49622;" id="pv3" class='counter'></td>
+                            <td id='uv3' class='counter'></td>
+                            <td style="color:#BB9463;"><i id="jump3" class='counter'></i>%</td>
+                            <td><img class="cimg" src="images/c-bolang.png" width="88" height="14" alt="" /></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px;" id="name4"></td>
+                            <td style="color:#d49622;" id="pv4" class='counter'></td>
+                            <td id='uv4' class='counter'></td>
+                            <td style="color:#BB9463;"><i id="jump4" class='counter'></i>%</td>
+                            <td><img class="cimg" src="images/c-bolang.png" width="88" height="14" alt="" /></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:14px;" id="name5"></td>
+                            <td style="color:#d49622;" id="pv5" class='counter'></td>
+                            <td id='uv5' class='counter'></td>
+                            <td style="color:#BB9463;"><i id="jump5" class='counter'></i>%</td>
+                            <td><img class="cimg" src="images/c-bolang.png" width="88" height="14" alt="" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!--爱心送温暖 -->
+                <div class="M-warm fl">
+                    <h1 class="M-h1">爱心送温暖活动</h1>
+                    <div class="M-w01 fl" style="margin-left:80px;">
+                        <dl class="cl">
+                            <dt><img src="images/c-w1.png" width="31" height="31" alt=""/></dt>
+                            <dd class="M-pvdate1">
+                                <h3>社区总人数</h3>
+                                <p class="M-pvdate1" id="comunityTotal"></p>
+                            </dd>
+                        </dl>
+                        <p><img src="images/c-hline.png" width="100" height="70" alt="" /></p>
+                    </div>
+
+                    <div class="M-w01 fl" style="margin-left:70px;">
+                        <dl class="cl">
+                            <dt><img src="images/c-w2.png" width="31" height="31" alt=""/></dt>
+                            <dd class="M-pvdate1">
+                                <h3>参与人数</h3>
+                                <p class="M-pvdate1" id="totalUser"></p>
+                            </dd>
+                        </dl>
+                        <p><img src="images/c-hline.png" width="100" height="70" alt="" /></p>
+                    </div>
+
+                    <div class="M-w01 fl" style="margin-left:-5px;">
+                        <dl class="cl">
+                            <dt><img src="images/c-w3.png" width="31" height="31" alt=""/></dt>
+                            <dd class="M-pvdate1">
+                                <h3>报名人数</h3>
+                                <p class="M-pvdate1" id="signUser"></p>
+                            </dd>
+                        </dl>
+                        <p><img src="images/c-hline.png" width="100" height="70" alt="" /></p>
+                    </div>
+
+                    <div class="M-w01 fl" style="margin-left:15px;">
+                        <dl class="cl">
+                            <dt><img src="images/c-w4.png" width="31" height="31" alt=""/></dt>
+                            <dd class="M-pvdate1">
+                                <h3>参与度</h3>
+                                <p class="M-pvdate1" id="participation"></p>
+                            </dd>
+                        </dl>
+                        <p><img src="images/c-hline.png" width="100" height="70" alt="" /></p>
+                    </div>
+                </div>
+            </div>
+            <!--用户绑定人数-->
+            <div class="M-platform fr">
+                <img src="images/c-form.png" width="250" height="257" alt="" />
+                <div class="M-shine"></div>
+                <div class="M-pltxt" id="M-p01">
+                    <p>APP用户</p>
+                    <p style="font-size:24px;" id="APP_USER"></p>
+                </div>
+
+                <div class="M-pltxt" id="M-p02">
+                    <p>月活用户</p>
+                    <p style="font-size:24px;" id="month_USER"></p>
+                </div>
+
+                <div class="M-pltxt" id="M-p03">
+                    <p>周活用户</p>
+                    <p style="font-size:24px;" id="week_USER"></p>
+                </div>
+
+                <div class="M-pltxt" id="M-p04">
+                    <p>日活用户</p>
+                    <p style="font-size:24px;" id="day_USER"></p>
+                </div>
+
+                <div class="M-pltxt" id="M-p05">
+                    <p>房屋绑定率 </p>
+                    <p style="font-size:24px;" id="HOUSE_BIND_RATE"></p>
+                </div>
+
+                <div class="M-pltxt" id="M-p06">
+                    <p> APP绑定房屋</p>
+                    <p style="font-size:24px;" id="HOUSE_BIND"></p>
+                </div>
+            </div>
+            <!--/平台用户 end-->
+            <div class="M-onlin fl">
+                <h1 class="M-h1">用户在线交易</h1>
+                <div class="M-crwp">
+                    <div class="M-cir">
+                        <p style="padding-top:60px;">
+                            <!--<img style="padding-right:10px;" src="images/c-Oval.png" width="11"-->
+                            <!--height="10" alt=""/>-->
+                            <span style="display: inline-block;width: 10px;height:10px;margin-right:10px;background: #BB9463; border-radius: 50%"></span> 新用户
+                            <em style="font-size:16px;" id="newUserPercent"></em></p>
+                        <p>
+                            <!--<img style="padding-right:10px;" src="images/c-Oval2.png" width="11" height="10" alt=""/>-->
+                            <span style="display: inline-block;width: 10px;height:10px;margin-right:10px;background: #8A5E29;border-radius: 50% "></span> 老用户
+
+                            <em style="font-size:16px;color:#C48730;" id="oldUserPercent"></em></p>
+                    </div>
+                    <div class="circleChart M-cir01" id="1" data-value="60"></div>
+                    <div class="circleChart M-cir02" id="2" data-value="30"></div>
+
+                </div>
+                <dl class="M-onto cl">
+                    <dt><img src="images/c-Page.png" width="114" height="87" alt=""/></dt>
+                    <dd style="color: white;">
+                        <p>新用户<em class="M-pvdate1" style="font-size:28px;padding-left:20px;" id="newUser"></em></p>
+                        <p>老用户<em class="M-pvdate1" style="font-size:28px;padding-left:20px;" id="oldUser"></em></p>
+                    </dd>
+                </dl>
+
+            </div>
+            <!--/用户在线交易 end-->
+
+
+        </div>
+    </div>
+    <!--/大社区平台右侧 end-->
+
+
+</body>
+
+</html>
